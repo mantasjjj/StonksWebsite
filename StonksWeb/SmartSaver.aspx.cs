@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace StonksWeb
 {
-    public partial class About : Page
+    public partial class SmartSaver : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

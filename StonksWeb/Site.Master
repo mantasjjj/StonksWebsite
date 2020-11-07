@@ -45,11 +45,11 @@
 
               <nav class="nav-menu d-none d-lg-block">
                 <ul>
-                  <li class="active"><a href="Default.aspx">Home</a></li>
-                  <li><a href="#">About</a></li>
+                  <li><a href="Default.aspx">Home</a></li>
+                  <li><a href="About.aspx">About</a></li>
                   <li><a href="SmartSaver.aspx">Smart Saver</a></li>
-                   <li><a href="#">Progress</a></li>
-                   <li><a href="#">Contact</a></li>
+                  <li><a href="Progress.aspx">Progress</a></li>
+                  <li><a href="#">Contact</a></li>
                 </ul>
               </nav>
 
@@ -59,7 +59,7 @@
          </asp:ContentPlaceHolder>
          <hr />
          <footer class="container">
-             <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+             <p>&copy; <%: DateTime.Now.Year %> - VU Stonks</p>
          </footer>
     </form>
    <script src="Scripts/Main.js"></script>

@@ -107,13 +107,18 @@
   <ItemGroup>
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Images\cta-bg.jpg" />
     <Content Include="Content\Images\favicon.png" />
     <Content Include="Content\Images\logo_transparent.png" />
+    <Content Include="Content\Images\progress-bars.png" />
+    <Content Include="Content\Images\progression.jpg" />
+    <Content Include="Content\Images\team.jpg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="About.aspx" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\Main.js" />
+    <Content Include="Progress.aspx" />
     <Content Include="SmartSaver.aspx" />
-    <Content Include="About.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -181,6 +186,20 @@
     <Compile Include="Classes\FinancialPlan.cs" />
     <Compile Include="Classes\FinancialPlanController.cs" />
     <Compile Include="Classes\InitializeUI.cs" />
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Progress.aspx.cs">
+      <DependentUpon>Progress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Progress.aspx.designer.cs">
+      <DependentUpon>Progress.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SmartSaver.aspx.cs">
       <DependentUpon>SmartSaver.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -189,13 +208,6 @@
       <DependentUpon>SmartSaver.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
