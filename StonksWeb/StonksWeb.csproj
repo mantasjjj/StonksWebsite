@@ -105,6 +105,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\finances.png" />
+    <Content Include="Finances.aspx" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Images\cta-bg.jpg" />
@@ -181,6 +183,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Finances.aspx.cs">
+      <DependentUpon>Finances.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Finances.aspx.designer.cs">
+      <DependentUpon>Finances.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Expense.cs" />
     <Compile Include="Classes\FinancialGoal.cs" />
     <Compile Include="Classes\FinancialPlan.cs" />

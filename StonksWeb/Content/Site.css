@@ -736,12 +736,10 @@ section {
 .smart-text{
     text-align: center;
     margin-left: 0;
+    font-size: 1.2rem;
 }
 
 .smart-text__display {
-    text-align: center;
-    justify-content: center;
-    display: flex;
 }
 
 .slider {
@@ -810,4 +808,38 @@ section {
     background-position-y: 14%;
     background-image: url(Images/team.jpg);
     color: #FFF;
+}
+
+/*--------------------------------------------------------------
+# My Finances
+--------------------------------------------------------------*/
+
+.container-finances {
+    margin: 0 20%;
+    text-align: center;
+}
+
+.container-expenses {
+    margin: 2% 20%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+
+.input-group{
+    width: 45%;
+}
+
+.finances-back {
+    background-size: auto;
+    background-position-y: 49%;
+    background-position: center;
+    background-image: url(Images/finances.png);
+    color: #FFF;
+}
+
+.btn{
+    font-size: 1.2rem;
+    margin: 15px;
+    padding: 15px;
 }
