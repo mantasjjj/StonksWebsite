@@ -11,6 +11,8 @@ namespace StonksWeb
 {
     public class Global : HttpApplication
     {
+        internal static FinancialPlan financialPlan = new FinancialPlan();
+
         void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup

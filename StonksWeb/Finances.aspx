@@ -1,4 +1,4 @@
-﻿<%@ Page Title="My Finances" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Finances.aspx.cs" Inherits="StonksWeb.About" %>
+﻿<%@ Page Title="My Finances" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Finances.aspx.cs" Inherits="StonksWeb.Finances" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron jumbotron-fluid finances-back">
@@ -16,7 +16,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-lg">My Income</span>
               </div>
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+              <asp:TextBox ID="TextBoxIncome" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" runat="server"/>
             </div>
         </div>
         <div class="container-expenses">
@@ -24,7 +24,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-lg">Housing</span>
               </div>
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+              <asp:TextBox ID="TextBoxHousing" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" runat="server"/>
             </div>
         </div>
         <div class="container-expenses">
@@ -32,7 +32,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-lg">Groceries</span>
               </div>
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+              <asp:TextBox ID="TextBoxGroceries" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" runat="server"/>
             </div>
         </div>
         <div class="container-expenses">
@@ -40,7 +40,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-lg">Transportation</span>
               </div>
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+              <asp:TextBox ID="TextBoxTransportation" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" runat="server"/>
             </div>
 
         </div>
@@ -49,7 +49,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-lg">Entertainment</span>
               </div>
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+              <asp:TextBox ID="TextBoxEntertainment" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" runat="server"/>
             </div>
         </div>
         <div class="container-expenses">
@@ -57,7 +57,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-lg">Shopping</span>
               </div>
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+              <asp:TextBox ID="TextBoxShopping" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" runat="server"/>
             </div>
         </div>
         <div class="container-expenses">
@@ -65,7 +65,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-lg">Health</span>
               </div>
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+              <asp:TextBox ID="TextBoxHealth" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" runat="server"/>
             </div>
         </div>
         <div class="container-expenses">
@@ -73,7 +73,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-lg">Utilities</span>
               </div>
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+              <asp:TextBox ID="TextBoxUtilities" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" runat="server"/>
             </div>
         </div>
         <div class="container-expenses">
@@ -81,11 +81,11 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-lg">Other</span>
               </div>
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+              <asp:TextBox ID="TextBoxOther" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" runat="server"/>
             </div>
         </div>
 
-        <button type="button" class="btn btn-success">Save Finances</button>
+        <asp:Button ID="ButtonSave" class="btn btn-success"  OnClick="saveFinances" Text="Save Finances" runat="server"/>
     </div>
     <script src="Scripts/Main.js"></script>
 </asp:Content>

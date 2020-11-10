@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Stonks
+namespace StonksWeb
 {
     [Serializable]
     class FinancialPlan : ICloneable

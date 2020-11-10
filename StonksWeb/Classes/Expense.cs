@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Stonks
+namespace StonksWeb
 {
     [Flags]
     public enum ExpenseType
