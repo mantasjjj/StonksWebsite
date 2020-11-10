@@ -1,4 +1,4 @@
-﻿using Stonks;
+﻿using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,28 +10,52 @@ namespace StonksWeb
 {
     public partial class Finances : Page
     {
-        FinancialPlan financialPlan = new FinancialPlan();
+        Dictionary<ExpenseType, TextBox> boxTypeList;
 
         protected void Page_Load(object sender, EventArgs e)
         {
         }
 
-        protected void Page_Render(object sender, EventArgs e)
+        protected void Page_Init(object sender, EventArgs e)
         {
-            TextBoxIncome.Text = financialPlan.Income.ToString();
+            boxTypeList = new Dictionary<ExpenseType, TextBox>()
+            {
+                { ExpenseType.Housing, TextBoxHousing },
+                { ExpenseType.Groceries, TextBoxGroceries },
+                { ExpenseType.Transport, TextBoxTransportation },
+                { ExpenseType.Entertainment, TextBoxEntertainment },
+                { ExpenseType.Shopping, TextBoxShopping },
+                { ExpenseType.Health, TextBoxHealth },
+                { ExpenseType.Utilities, TextBoxUtilities },
+                { ExpenseType.Other, TextBoxOther }
+            };
+        }
+        protected void Page_LoadComplete(object sender, EventArgs e)
+        {
+            TextBoxIncome.Text = Global.financialPlan.Income.ToString();
+            foreach (KeyValuePair<ExpenseType, TextBox> boxType in boxTypeList)
+            {
+                var expense = Global.financialPlan.GetExpense(boxType.Key);
+                if (expense != null)
+                {
+                    boxType.Value.Text = expense.Value.ToString();
+                }
+            }
         }
 
         protected void saveFinances(object sender, EventArgs e)
         {
-            financialPlan.Income = Double.Parse(TextBoxIncome.Text);
-            financialPlan.AddExpense(new Expense(ExpenseType.Housing, Double.Parse(TextBoxHousing.Text), Double.Parse(TextBoxHousing.Text)));
-            financialPlan.AddExpense(new Expense(ExpenseType.Groceries, Double.Parse(TextBoxGroceries.Text), Double.Parse(TextBoxGroceries.Text)));
-            financialPlan.AddExpense(new Expense(ExpenseType.Transport, Double.Parse(TextBoxTransportation.Text), Double.Parse(TextBoxTransportation.Text)));
-            financialPlan.AddExpense(new Expense(ExpenseType.Entertainment, Double.Parse(TextBoxEntertainment.Text), Double.Parse(TextBoxEntertainment.Text)));
-            financialPlan.AddExpense(new Expense(ExpenseType.Shopping, Double.Parse(TextBoxShopping.Text), Double.Parse(TextBoxShopping.Text)));
-            financialPlan.AddExpense(new Expense(ExpenseType.Health, Double.Parse(TextBoxHealth.Text), Double.Parse(TextBoxHealth.Text)));
-            financialPlan.AddExpense(new Expense(ExpenseType.Utilities, Double.Parse(TextBoxUtilities.Text), Double.Parse(TextBoxUtilities.Text)));
-            financialPlan.AddExpense(new Expense(ExpenseType.Other, Double.Parse(TextBoxOther.Text), Double.Parse(TextBoxOther.Text)));
+            if (Double.TryParse(TextBoxIncome.Text, out double income))
+            {
+                Global.financialPlan.Income = income;
+            }
+            foreach (KeyValuePair<ExpenseType, TextBox> boxType in boxTypeList)
+            {
+                if (Double.TryParse(boxType.Value.Text, out double value))
+                {
+                    Global.financialPlan.AddExpense(new Expense(boxType.Key, value, value));
+                }
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Stonks
+namespace StonksWeb
 {
     [Serializable]
     class FinancialGoal : ICloneable

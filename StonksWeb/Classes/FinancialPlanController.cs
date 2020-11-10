@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stonks
+namespace StonksWeb
 {
     static class FinancialPlanController
     {
