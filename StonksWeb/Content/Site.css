@@ -739,7 +739,8 @@ section {
     font-size: 1.2rem;
 }
 
-.smart-text__display {
+.smart-text__display {    top: 0px;
+    left: 0px;
 }
 
 .slider {
