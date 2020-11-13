@@ -29,13 +29,14 @@ namespace StonksWeb
                 { ExpenseType.Utilities, TextBoxUtilities },
                 { ExpenseType.Other, TextBoxOther }
             };
+
         }
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
-            TextBoxIncome.Text = Global.financialPlan.Income.ToString();
+            TextBoxIncome.Text = FinancialPlanController.ActivePlan.Income.ToString();
             foreach (KeyValuePair<ExpenseType, TextBox> boxType in boxTypeList)
             {
-                var expense = Global.financialPlan.GetExpense(boxType.Key);
+                var expense = FinancialPlanController.ActivePlan.GetExpense(boxType.Key);
                 if (expense != null)
                 {
                     boxType.Value.Text = expense.Value.ToString();
@@ -43,19 +44,35 @@ namespace StonksWeb
             }
         }
 
+        public void LoadExpenses()
+        {
+            //Income
+            if (TextBoxIncome == null)
+            {
+                TextBoxIncome.Text = "0";
+            }
+            else
+            {
+                TextBoxIncome.Text = Convert.ToString(FinancialPlanController.ActivePlan.Income);
+            }
+
+            //Expenses
+            boxTypeList.ForEach(x => x.Value.Text = (FinancialPlanController.ActivePlan.GetExpense(x.Key) != null) ? Convert.ToString(FinancialPlanController.ActivePlan.GetExpense(x.Key).Value) : "0");
+        }
+
         protected void saveFinances(object sender, EventArgs e)
         {
             if (Double.TryParse(TextBoxIncome.Text, out double income))
             {
-                Global.financialPlan.Income = income;
+                FinancialPlanController.ActivePlan.Income = income;
             }
             foreach (KeyValuePair<ExpenseType, TextBox> boxType in boxTypeList)
             {
                 if (Double.TryParse(boxType.Value.Text, out double value))
                 {
-                    Global.financialPlan.AddExpense(new Expense(boxType.Key, value, value));
+                    FinancialPlanController.ActivePlan.AddExpense(new Expense(boxType.Key, value, value));
                 }
             }
         }
     }
-}
+} 

@@ -183,6 +183,7 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\BinarySerialization.cs" />
     <Compile Include="Finances.aspx.cs">
       <DependentUpon>Finances.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
