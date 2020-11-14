@@ -117,6 +117,8 @@
     <Content Include="Content\Images\team.jpg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="About.aspx" />
+    <Content Include="SignUp.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\Main.js" />
     <Content Include="Progress.aspx" />
@@ -201,6 +203,20 @@
     </Compile>
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SignUp.aspx.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignUp.aspx.designer.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Progress.aspx.cs">
       <DependentUpon>Progress.aspx</DependentUpon>

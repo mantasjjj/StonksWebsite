@@ -63,9 +63,9 @@
       <div class="container" data-aos="zoom-in">
 
         <div class="text-center">
-          <h3>Call To Action</h3>
-          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <a class="cta-btn" href="#">Call To Action</a>
+          <h3>Create your very own financial plan today!</h3>
+          <p class="cta-p">Stop unnesesarily spending money on stuff that you don't need! Click here and create your very own financial plan today!</p>
+          <a class="cta-btn" href="SmartSaver.aspx">Create a financial plan</a>
         </div>
 
       </div>

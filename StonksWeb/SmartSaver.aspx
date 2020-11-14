@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Smart Saver" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SmartSaver.aspx.cs" Inherits="StonksWeb.About" %>
+﻿<%@ Page Title="Smart Saver" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SmartSaver.aspx.cs" Inherits="StonksWeb.SmartSaver" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron jumbotron-fluid smart-back">
@@ -17,11 +17,11 @@
             <div class="row slider-margin">
                 <div class="col-md-8">
                     <div class="slidecontainer">
-                        <input type="range" min="1" max="100" value="50" class="slider" id="housing" style="margin-left: 0;"/>
+                        <nput type="range" min="1" max="100" value="50" class="slider" id="housing" style="margin-left: 0;"/>
                     </div>
                 </div>
                 <div class="col-md-3 smart-text__display">
-                    <input type="text" class="smart-text"/>
+                    <asp:TextBox ID="TextBoxHousing" type="text" class="smart-text" runat="server"></asp:TextBox>
                 </div>
             </div>
             
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 smart-text__display">
-                    <input type="text" class="smart-text"/>
+                    <asp:TextBox ID="TextBoxGroceries" type="text" class="smart-text" runat="server"></asp:TextBox>
                 </div>
             </div>
 
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 smart-text__display">
-                    <input type="text" class="smart-text"/>
+                    <asp:TextBox ID="TextBoxTransportation" type="text" class="smart-text" runat="server"></asp:TextBox>
                 </div>
             </div>
 
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 smart-text__display">
-                    <input type="text" class="smart-text"/>
+                    <asp:TextBox ID="TextBoxEntertainment" type="text" class="smart-text" runat="server"></asp:TextBox>
                 </div>
             </div>
 
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
-                <input type="text" class="smart-text"/>
+                <asp:TextBox ID="TextBoxShopping" type="text" class="smart-text" runat="server"></asp:TextBox>
             </div>
         </div>
 
@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
-                <input type="text" class="smart-text"/>
+                <asp:TextBox ID="TextBoxHealth" type="text" class="smart-text" runat="server"></asp:TextBox>
             </div>
         </div>
 
@@ -87,7 +87,7 @@
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
-                <input type="text" class="smart-text"/>
+                <asp:TextBox ID="TextBoxUtilities" type="text" class="smart-text" runat="server"></asp:TextBox>
             </div>
         </div>
 
@@ -98,10 +98,16 @@
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
-                <input type="text" class="smart-text"/>
+                <asp:TextBox ID="TextBoxOther" type="text" class="smart-text" runat="server"></asp:TextBox>
             </div>
         </div>
 
+        <asp:Button ID="ButtonSave" runat="server" type="submit" class="btn btn-success btn-login" Text="Save Plan"/>
+        <asp:Button ID="ButtonLogin" runat="server" type="submit" class="btn btn-primary btn-login" Text="Add A Goal"/>
+
+        <div class="goals">
+
+        </div>
 
     </div>
     <script src="Scripts/Main.js"></script>
