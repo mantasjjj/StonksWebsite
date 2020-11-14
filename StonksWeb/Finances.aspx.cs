@@ -22,15 +22,15 @@ namespace StonksWeb
             {
                 { ExpenseType.Housing, TextBoxHousing },
                 { ExpenseType.Groceries, TextBoxGroceries },
-                { ExpenseType.Transport, TextBoxTransportation },
+                { ExpenseType.Transportation, TextBoxTransportation },
                 { ExpenseType.Entertainment, TextBoxEntertainment },
-                { ExpenseType.Shopping, TextBoxShopping },
                 { ExpenseType.Health, TextBoxHealth },
+                { ExpenseType.Shopping, TextBoxShopping },
                 { ExpenseType.Utilities, TextBoxUtilities },
                 { ExpenseType.Other, TextBoxOther }
             };
-
         }
+
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
             TextBoxIncome.Text = FinancialPlanController.ActivePlan.Income.ToString();
