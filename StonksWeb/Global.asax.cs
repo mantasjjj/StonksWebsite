@@ -11,7 +11,7 @@ namespace StonksWeb
 {
     public class Global : HttpApplication
     {
-        public static string saveFilePath = "C:\\Users\\Vartotojas\\source\\repos\\stonks\\financialPlan.bin";
+        public static string saveFilePath = "D:\\financialPlan.bin";
 
         void Application_Start(object sender, EventArgs e)
         {

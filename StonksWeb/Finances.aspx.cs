@@ -44,23 +44,7 @@ namespace StonksWeb
             }
         }
 
-        public void LoadExpenses()
-        {
-            //Income
-            if (TextBoxIncome == null)
-            {
-                TextBoxIncome.Text = "0";
-            }
-            else
-            {
-                TextBoxIncome.Text = Convert.ToString(FinancialPlanController.ActivePlan.Income);
-            }
-
-            //Expenses
-            boxTypeList.ForEach(x => x.Value.Text = (FinancialPlanController.ActivePlan.GetExpense(x.Key) != null) ? Convert.ToString(FinancialPlanController.ActivePlan.GetExpense(x.Key).Value) : "0");
-        }
-
-        protected void saveFinances(object sender, EventArgs e)
+        protected void SaveFinances(object sender, EventArgs e)
         {
             if (Double.TryParse(TextBoxIncome.Text, out double income))
             {

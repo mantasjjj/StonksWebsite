@@ -21,10 +21,10 @@ namespace StonksWeb
             {
                 { ExpenseType.Housing, TextBoxHousing },
                 { ExpenseType.Groceries, TextBoxGroceries },
-                { ExpenseType.Transport, TextBoxTransportation },
+                { ExpenseType.Transportation, TextBoxTransportation },
                 { ExpenseType.Entertainment, TextBoxEntertainment },
-                { ExpenseType.Shopping, TextBoxShopping },
                 { ExpenseType.Health, TextBoxHealth },
+                { ExpenseType.Shopping, TextBoxShopping },
                 { ExpenseType.Utilities, TextBoxUtilities },
                 { ExpenseType.Other, TextBoxOther }
             };
