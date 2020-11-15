@@ -15,6 +15,33 @@ namespace StonksWeb
     {
 
         /// <summary>
+        /// Income control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Income;
+
+        /// <summary>
+        /// Savings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Savings;
+
+        /// <summary>
+        /// Spendings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Spendings;
+
+        /// <summary>
         /// Housing control.
         /// </summary>
         /// <remarks>

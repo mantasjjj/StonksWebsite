@@ -13,6 +13,23 @@
             The first step to saving for short- and long-term goals is to identify the amount you need to save and when you need the funds. 
             Use our calculator to determine how much to save each month toward your goal.
         </p>
+        <div class="row" style="margin-bottom: 2%;">
+            <div class="col-md-4">
+                <h3 class="smart-h3">
+                    Income: <p class="smart-p" runat="server" id="Income">0.00</p>
+                </h3>
+            </div>
+            <div class="col-md-4">
+                <h3 class="smart-h3">
+                    Savings: <p class="smart-p" runat="server" id="Savings">0.00</p>
+                </h3>
+            </div>
+            <div class="col-md-4">
+                <h3 class="smart-h3">
+                    Spendings: <p class="smart-p" runat="server" id="Spendings">0.00</p>
+                </h3>
+            </div>
+        </div>
         <h3 class="currentDate smart-h3">Current date:  <%: DateTime.Now.ToString("yyyy-M-dd") %></h3>
             <div class="row slider-margin">
                 <div class="col-md-8">

@@ -10,6 +10,7 @@ namespace StonksWeb
     public partial class SmartSaver : Page
     {
         Dictionary<ExpenseType, TextBox> boxTypeList;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,6 +29,11 @@ namespace StonksWeb
                 { ExpenseType.Utilities, TextBoxUtilities },
                 { ExpenseType.Other, TextBoxOther }
             };
+
+            Double savings = FinancialPlanController.ActivePlan.Income - FinancialPlanController.ActivePlan.GetSpendings();
+            Income.InnerText = FinancialPlanController.ActivePlan.Income.ToString("€#.#");
+            Spendings.InnerText = FinancialPlanController.ActivePlan.GetSpendings().ToString("€#.#");
+            Savings.InnerText = savings.ToString("€#.#");
         }
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
