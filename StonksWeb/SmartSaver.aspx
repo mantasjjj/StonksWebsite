@@ -17,7 +17,7 @@
             <div class="row slider-margin">
                 <div class="col-md-8">
                     <div class="slidecontainer">
-                        <nput type="range" min="1" max="100" value="50" class="slider" id="housing" style="margin-left: 0;"/>
+                        <input type="range" min="1" max="100" value="50" class="slider" runat="server" id="Housing" style="margin-left: 0;" />
                     </div>
                 </div>
                 <div class="col-md-3 smart-text__display">
@@ -28,7 +28,7 @@
             <div class="row slider-margin">
                 <div class="col-md-8">
                     <div class="slidecontainer">
-                        <input type="range" min="1" max="100" value="50" class="slider" id="groceries"/>
+                        <input type="range" min="1" max="100" value="50" class="slider" runat="server" id="Groceries"/>
                     </div>
                 </div>
                 <div class="col-md-3 smart-text__display">
@@ -39,7 +39,7 @@
         <div class="row slider-margin">
                 <div class="col-md-8">
                     <div class="slidecontainer">
-                        <input type="range" min="1" max="100" value="50" class="slider" id="transportation"/>
+                        <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Transportation"/>
                     </div>
                 </div>
                 <div class="col-md-3 smart-text__display">
@@ -50,7 +50,7 @@
         <div class="row slider-margin">
                 <div class="col-md-8">
                     <div class="slidecontainer">
-                        <input type="range" min="1" max="100" value="50" class="slider" id="entertainment"/>
+                        <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Entertainment"/>
                     </div>
                 </div>
                 <div class="col-md-3 smart-text__display">
@@ -61,7 +61,7 @@
         <div class="row slider-margin">
             <div class="col-md-8">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" class="slider" id="shopping"/>
+                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Shopping"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
@@ -72,7 +72,7 @@
         <div class="row slider-margin">
             <div class="col-md-8">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" class="slider" id="health"/>
+                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Health"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
@@ -83,7 +83,7 @@
         <div class="row slider-margin">
             <div class="col-md-8">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" class="slider" id="utilities"/>
+                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Utilities"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
@@ -94,7 +94,7 @@
         <div class="row slider-margin">
             <div class="col-md-8">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" class="slider" id="other"/>
+                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Other"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
