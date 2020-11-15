@@ -225,7 +225,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Open Sans", sans-serif;
 }
 
-.nav-menu > ul > li:hover, .nav-menu .active {
+.nav-menu > ul > li:hover{
   background: #cc1616;
 }
 
@@ -626,6 +626,11 @@ section {
   padding: 120px 0;
 }
 
+.cta-p{
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
 .cta h3 {
   color: #fff;
   font-size: 28px;
@@ -720,6 +725,7 @@ section {
 
 .container-smart {
     margin: 0 20%;
+    text-align: center;
 }
 
 .smart-p {
@@ -789,6 +795,13 @@ section {
 
 .container-progress {
     margin: 0 20%;
+    text-align: center;
+    font-size: large;
+}
+
+#piechart {
+    display: flex;
+    justify-content: center;
 }
 
 .progress-back {
@@ -843,4 +856,42 @@ section {
     font-size: 1.2rem;
     margin: 15px;
     padding: 15px;
+}
+
+
+/*--------------------------------------------------------------
+# Login/SignUp
+--------------------------------------------------------------*/
+
+.container-login {
+    margin: 1% 43%;
+    text-align: center;
+}
+
+.form-group{
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.form-control{
+    font-size: 1.5rem;
+}
+
+.btn-login{
+    font-size: 1.5rem;
+}
+
+.login-h2{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10%;
+}
+
+.login-sign{
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.login-sign:hover, .login-sign:focus{
+    color: #fff;
 }

@@ -1,4 +1,8 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
+using System.IO;
+using System.Text;
 
 namespace StonksWeb
 {
@@ -26,17 +30,6 @@ namespace StonksWeb
                 var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
                 binaryFormatter.Serialize(stream, objectToWrite);
             }
-        }
-
-        public static void WriteToBinaryFile<T>(T objectToWrite, bool append = true)
-        {
-            string filePath;
-            if (objectToWrite is FinancialPlan)
-                filePath = "C:\\financialPlan.bin";
-            else
-                return;
-
-            WriteToBinaryFile<T>(filePath, objectToWrite, append);
         }
 
         /// <summary>

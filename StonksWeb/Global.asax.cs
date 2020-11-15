@@ -11,8 +11,7 @@ namespace StonksWeb
 {
     public class Global : HttpApplication
     {
-        //internal static FinancialPlan financialPlan = new FinancialPlan();
-        internal static string saveFilePath = "C:\\financialPlan.bin";
+        public static string saveFilePath = "C:\\Users\\Vartotojas\\source\\repos\\stonks\\financialPlan.bin";
 
         void Application_Start(object sender, EventArgs e)
         {
@@ -26,11 +25,8 @@ namespace StonksWeb
                 FinancialPlanController.AddNewPlan();
             }
 
-            // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            BinarySerialization.WriteToBinaryFile(saveFilePath, FinancialPlanController.FinancialPlans);
         }
     }
 }

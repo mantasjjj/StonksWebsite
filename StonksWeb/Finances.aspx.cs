@@ -73,6 +73,7 @@ namespace StonksWeb
                     FinancialPlanController.ActivePlan.AddExpense(new Expense(boxType.Key, value, value));
                 }
             }
+            BinarySerialization.WriteToBinaryFile(Global.saveFilePath, FinancialPlanController.FinancialPlans);
         }
     }
 } 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Smart Saver" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SmartSaver.aspx.cs" Inherits="StonksWeb.About" %>
+﻿<%@ Page Title="Smart Saver" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SmartSaver.aspx.cs" Inherits="StonksWeb.SmartSaver" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron jumbotron-fluid smart-back">
@@ -17,91 +17,97 @@
             <div class="row slider-margin">
                 <div class="col-md-8">
                     <div class="slidecontainer">
-                        <input type="range" min="1" max="100" value="50" class="slider" id="housing" style="margin-left: 0;"/>
+                        <input type="range" min="1" max="100" value="50" class="slider" runat="server" id="Housing" style="margin-left: 0;" />
                     </div>
                 </div>
                 <div class="col-md-3 smart-text__display">
-                    <input type="text" class="smart-text"/>
+                    <asp:TextBox ID="TextBoxHousing" type="text" class="smart-text" runat="server"></asp:TextBox>
                 </div>
             </div>
             
             <div class="row slider-margin">
                 <div class="col-md-8">
                     <div class="slidecontainer">
-                        <input type="range" min="1" max="100" value="50" class="slider" id="groceries"/>
+                        <input type="range" min="1" max="100" value="50" class="slider" runat="server" id="Groceries"/>
                     </div>
                 </div>
                 <div class="col-md-3 smart-text__display">
-                    <input type="text" class="smart-text"/>
+                    <asp:TextBox ID="TextBoxGroceries" type="text" class="smart-text" runat="server"></asp:TextBox>
                 </div>
             </div>
 
         <div class="row slider-margin">
                 <div class="col-md-8">
                     <div class="slidecontainer">
-                        <input type="range" min="1" max="100" value="50" class="slider" id="transportation"/>
+                        <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Transportation"/>
                     </div>
                 </div>
                 <div class="col-md-3 smart-text__display">
-                    <input type="text" class="smart-text"/>
+                    <asp:TextBox ID="TextBoxTransportation" type="text" class="smart-text" runat="server"></asp:TextBox>
                 </div>
             </div>
 
         <div class="row slider-margin">
                 <div class="col-md-8">
                     <div class="slidecontainer">
-                        <input type="range" min="1" max="100" value="50" class="slider" id="entertainment"/>
+                        <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Entertainment"/>
                     </div>
                 </div>
                 <div class="col-md-3 smart-text__display">
-                    <input type="text" class="smart-text"/>
+                    <asp:TextBox ID="TextBoxEntertainment" type="text" class="smart-text" runat="server"></asp:TextBox>
                 </div>
             </div>
 
         <div class="row slider-margin">
             <div class="col-md-8">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" class="slider" id="shopping"/>
+                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Shopping"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
-                <input type="text" class="smart-text"/>
+                <asp:TextBox ID="TextBoxShopping" type="text" class="smart-text" runat="server"></asp:TextBox>
             </div>
         </div>
 
         <div class="row slider-margin">
             <div class="col-md-8">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" class="slider" id="health"/>
+                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Health"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
-                <input type="text" class="smart-text"/>
+                <asp:TextBox ID="TextBoxHealth" type="text" class="smart-text" runat="server"></asp:TextBox>
             </div>
         </div>
 
         <div class="row slider-margin">
             <div class="col-md-8">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" class="slider" id="utilities"/>
+                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Utilities"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
-                <input type="text" class="smart-text"/>
+                <asp:TextBox ID="TextBoxUtilities" type="text" class="smart-text" runat="server"></asp:TextBox>
             </div>
         </div>
 
         <div class="row slider-margin">
             <div class="col-md-8">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" class="slider" id="other"/>
+                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Other"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
-                <input type="text" class="smart-text"/>
+                <asp:TextBox ID="TextBoxOther" type="text" class="smart-text" runat="server"></asp:TextBox>
             </div>
         </div>
 
+        <asp:Button ID="ButtonSave" runat="server" type="submit" class="btn btn-success btn-login" Text="Save Plan"/>
+        <asp:Button ID="ButtonLogin" runat="server" type="submit" class="btn btn-primary btn-login" Text="Add A Goal"/>
+
+        <div class="goals">
+
+        </div>
 
     </div>
     <script src="Scripts/Main.js"></script>
