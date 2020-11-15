@@ -35,14 +35,16 @@ namespace StonksWeb
             chartPlanned.ChartAreas[0].BackColor = Transparent;
 
             //ExpensesChart 
-                chartPlanned.Series["Monthly Expenses"].Points.AddXY("Housing", FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Housing).Value);
-                chartPlanned.Series["Monthly Expenses"].Points.AddXY("Groceries", FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Groceries).Value);
-                chartPlanned.Series["Monthly Expenses"].Points.AddXY("Transport", FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Transportation).Value);
-                chartPlanned.Series["Monthly Expenses"].Points.AddXY("Entertainment", FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Entertainment).Value);
-                chartPlanned.Series["Monthly Expenses"].Points.AddXY("Health", FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Health).Value);
-                chartPlanned.Series["Monthly Expenses"].Points.AddXY("Shopping", FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Shopping).Value);
-                chartPlanned.Series["Monthly Expenses"].Points.AddXY("Utilities", FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Utilities).Value);
-                chartPlanned.Series["Monthly Expenses"].Points.AddXY("Other", FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Other).Value);
+            foreach (Expense expense in FinancialPlanController.ActivePlan.Expenses)
+            {
+
+                if (FinancialPlanController.ActivePlan.GetExpense(expense.Type) != null)
+                {
+                    chartPlanned.Series["Monthly Expenses"].Points
+                        .AddXY(FinancialPlanController.ActivePlan.GetExpense(expense.Type).ToString(),
+                        FinancialPlanController.ActivePlan.GetExpense(expense.Type).Value);
+                }
+            }
         }
     }
 }
