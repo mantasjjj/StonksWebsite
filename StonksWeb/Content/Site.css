@@ -795,6 +795,13 @@ section {
 
 .container-progress {
     margin: 0 20%;
+    text-align: center;
+    font-size: large;
+}
+
+#piechart {
+    display: flex;
+    justify-content: center;
 }
 
 .progress-back {

@@ -28,8 +28,6 @@ namespace StonksWeb
                 { ExpenseType.Utilities, TextBoxUtilities },
                 { ExpenseType.Other, TextBoxOther }
             };
-
-
         }
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
