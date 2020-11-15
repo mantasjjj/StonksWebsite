@@ -35,13 +35,12 @@ namespace StonksWeb
         {
             foreach (KeyValuePair<ExpenseType, TextBox> boxType in boxTypeList)
             {
-                var expense = Global.financialPlan.GetExpense(boxType.Key);
+                var expense = FinancialPlanController.ActivePlan.GetExpense(boxType.Key);
                 if (expense != null)
                 {
                     boxType.Value.Text = expense.Value.ToString();
                 }
             }
-            LoadSliders();
         }
 
     }
