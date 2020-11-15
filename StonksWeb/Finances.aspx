@@ -85,7 +85,7 @@
             </div>
         </div>
 
-        <asp:Button ID="ButtonSave" class="btn btn-success"  OnClick="saveFinances" Text="Save Finances" runat="server"/>
+        <asp:Button ID="ButtonSave" class="btn btn-success"  OnClick="SaveFinances" Text="Save Finances" runat="server"/>
     </div>
     <script src="Scripts/Main.js"></script>
 </asp:Content>
