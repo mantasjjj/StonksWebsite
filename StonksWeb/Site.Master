@@ -51,7 +51,7 @@
                   <li><a href="SmartSaver.aspx">Smart Saver</a></li>
                   <li><a href="Progress.aspx">Progress</a></li>
                   <li><a href="Finances.aspx">My Finances</a></li>
-                  <li><a href="#">Contact</a></li>
+                  <!--<li><a href="#">Contact</a></li>-->
                   <li class="login-nav"><a href="Login.aspx">Login</a></li>
                 </ul>
               </nav>
