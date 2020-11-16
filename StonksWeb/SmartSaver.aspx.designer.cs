@@ -59,6 +59,7 @@ namespace StonksWeb
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxHousing;
 
+        /// <summary>
         /// TextBoxHousingActual control.
         /// </summary>
         /// <remarks>
@@ -67,6 +68,8 @@ namespace StonksWeb
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxHousingActual;
 
+        /// <summary>
+        /// GroceriesSlider control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -83,6 +86,7 @@ namespace StonksWeb
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxGroceries;
 
+        /// <summary>
         /// TextBoxGroceriesActual control.
         /// </summary>
         /// <remarks>
@@ -91,6 +95,8 @@ namespace StonksWeb
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxGroceriesActual;
 
+        /// <summary>
+        /// TransportationSlider control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -107,6 +113,7 @@ namespace StonksWeb
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxTransportation;
 
+        /// <summary>
         /// TextBoxTransportationActual control.
         /// </summary>
         /// <remarks>
@@ -115,6 +122,8 @@ namespace StonksWeb
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxTransportationActual;
 
+        /// <summary>
+        /// EntertainmentSlider control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -131,6 +140,7 @@ namespace StonksWeb
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxEntertainment;
 
+        /// <summary>
         /// TextBoxEntertainmentActual control.
         /// </summary>
         /// <remarks>
@@ -139,6 +149,8 @@ namespace StonksWeb
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxEntertainmentActual;
 
+        /// <summary>
+        /// ShoppingSlider control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -155,6 +167,7 @@ namespace StonksWeb
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxShopping;
 
+        /// <summary>
         /// TextBoxShoppingActual control.
         /// </summary>
         /// <remarks>
@@ -163,6 +176,8 @@ namespace StonksWeb
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxShoppingActual;
 
+        /// <summary>
+        /// HealthSlider control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -179,6 +194,7 @@ namespace StonksWeb
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxHealth;
 
+        /// <summary>
         /// TextBoxHealthActual control.
         /// </summary>
         /// <remarks>
@@ -187,6 +203,8 @@ namespace StonksWeb
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxHealthActual;
 
+        /// <summary>
+        /// UtilitiesSlider control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -203,6 +221,7 @@ namespace StonksWeb
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxUtilities;
 
+        /// <summary>
         /// TextBoxUtilitiesActual control.
         /// </summary>
         /// <remarks>
@@ -211,6 +230,8 @@ namespace StonksWeb
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxUtilitiesActual;
 
+        /// <summary>
+        /// OtherSlider control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

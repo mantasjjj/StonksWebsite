@@ -4,50 +4,52 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 
 namespace StonksWeb
 {
+    public struct ExpenseMap
+    {
+        public readonly ExpenseType Type;
+        public readonly TextBox Text;
+        public readonly HtmlInputGenericControl Slider;
+
+        public ExpenseMap(ExpenseType type, TextBox text, HtmlInputGenericControl slider)
+        {
+            Type = type;
+            Text = text;
+            Slider = slider;
+        }
+    }
+
     public partial class SmartSaver : Page
     {
-        Dictionary<ExpenseType, TextBox> boxTypeList;
-        Dictionary<ExpenseType, global::System.Web.UI.HtmlControls.HtmlInputGenericControl> sliderTypeList;
+        static List<ExpenseMap> expenseMap;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            sliderTypeList = new Dictionary<ExpenseType, global::System.Web.UI.HtmlControls.HtmlInputGenericControl>()
+            foreach (ExpenseMap map in expenseMap)
             {
-                { ExpenseType.Housing, HousingSlider},
-                { ExpenseType.Groceries, GroceriesSlider },
-                { ExpenseType.Transportation, TransportationSlider },
-                { ExpenseType.Entertainment, EntertainmentSlider },
-                { ExpenseType.Health, HealthSlider },
-                { ExpenseType.Shopping, ShoppingSlider },
-                { ExpenseType.Utilities, UtilitiesSlider },
-                { ExpenseType.Other, OtherSlider }
-            };
-
-            foreach (KeyValuePair<ExpenseType, global::System.Web.UI.HtmlControls.HtmlInputGenericControl> sliderType in sliderTypeList)
-            {
-                var expense = FinancialPlanController.ActivePlan.GetExpense(sliderType.Key);
+                var expense = FinancialPlanController.ActivePlan.GetExpense(map.Type);
                 if (expense != null)
                 {
-                    sliderType.Value.Value = expense.Value.ToString();
+                    map.Slider.Value = expense.Value.ToString();
                 }
             }
         }
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            boxTypeList = new Dictionary<ExpenseType, TextBox>()
+            expenseMap = new List<ExpenseMap>()
             {
-                { ExpenseType.Housing, TextBoxHousingActual },
-                { ExpenseType.Groceries, TextBoxGroceriesActual },
-                { ExpenseType.Transportation, TextBoxTransportationActual },
-                { ExpenseType.Entertainment, TextBoxEntertainmentActual },
-                { ExpenseType.Health, TextBoxHealthActual },
-                { ExpenseType.Shopping, TextBoxShoppingActual },
-                { ExpenseType.Utilities, TextBoxUtilitiesActual },
-                { ExpenseType.Other, TextBoxOtherActual }
+                new ExpenseMap(ExpenseType.Housing, TextBoxHousingActual, HousingSlider),
+                new ExpenseMap(ExpenseType.Groceries, TextBoxGroceriesActual, GroceriesSlider),
+                new ExpenseMap(ExpenseType.Transportation, TextBoxTransportationActual, TransportationSlider),
+                new ExpenseMap(ExpenseType.Entertainment, TextBoxEntertainmentActual, EntertainmentSlider),
+                new ExpenseMap(ExpenseType.Health, TextBoxHealthActual, HealthSlider),
+                new ExpenseMap(ExpenseType.Shopping, TextBoxShoppingActual, ShoppingSlider),
+                new ExpenseMap(ExpenseType.Utilities, TextBoxUtilitiesActual, UtilitiesSlider),
+                new ExpenseMap(ExpenseType.Other, TextBoxOtherActual, OtherSlider)
             };
 
             Double savings = FinancialPlanController.ActivePlan.Income - FinancialPlanController.ActivePlan.GetSpendings();
@@ -58,12 +60,12 @@ namespace StonksWeb
 
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
-            foreach (KeyValuePair<ExpenseType, TextBox> boxType in boxTypeList)
+            foreach (ExpenseMap map in expenseMap)
             {
-                var expense = FinancialPlanController.ActivePlan.GetExpense(boxType.Key);
+                var expense = FinancialPlanController.ActivePlan.GetExpense(map.Type);
                 if (expense != null)
                 {
-                    boxType.Value.Text = expense.Value.ToString();
+                    map.Text.Text = expense.Value.ToString();
                 }
             }
         }
@@ -72,5 +74,12 @@ namespace StonksWeb
         {
         }
 
+        [System.Web.Services.WebMethod]
+        public static void UpdateValue()
+        {
+            HtmlInputGenericControl slider = new HtmlInputGenericControl();
+            FinancialPlanController.ActivePlan.ModifyExpensePlannedValue(expenseMap.Where(x => x.Slider == slider).FirstOrDefault().Type, Double.Parse(slider.Value));
+            expenseMap.Where(x => x.Slider == slider).FirstOrDefault().Text.Text = slider.Value;
+        }
     }
 }
