@@ -10,18 +10,30 @@ namespace StonksWeb
     public partial class SmartSaver : Page
     {
         Dictionary<ExpenseType, TextBox> boxTypeList;
-        
+        Dictionary<ExpenseType, object> sliderTypeList; //need help with the type of "sliders", object seems to be read-only
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            HousingSlider.Value = FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Housing).Value.ToString();
-            GroceriesSlider.Value = FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Groceries).Value.ToString();
-            TransportationSlider.Value = FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Transportation).Value.ToString();
-            EntertainmentSlider.Value = FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Entertainment).Value.ToString();
-            HealthSlider.Value = FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Health).Value.ToString();
-            ShoppingSlider.Value = FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Shopping).Value.ToString();
-            UtilitiesSlider.Value = FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Utilities).Value.ToString();
-            OtherSlider.Value = FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Other).Value.ToString();
+            sliderTypeList = new Dictionary<ExpenseType, object>()
+            {
+                { ExpenseType.Housing, HousingSlider},
+                { ExpenseType.Groceries, GroceriesSlider },
+                { ExpenseType.Transportation, TransportationSlider },
+                { ExpenseType.Entertainment, EntertainmentSlider },
+                { ExpenseType.Health, HealthSlider },
+                { ExpenseType.Shopping, ShoppingSlider },
+                { ExpenseType.Utilities, UtilitiesSlider },
+                { ExpenseType.Other, OtherSlider }
+            };
+
+            foreach (KeyValuePair<ExpenseType, object> sliderType in sliderTypeList)
+            {
+                var expense = FinancialPlanController.ActivePlan.GetExpense(sliderType.Key);
+                if (expense != null)
+                {
+                    //assign the Value of the slider
+                }
+            }
         }
 
         protected void Page_Init(object sender, EventArgs e)
@@ -42,8 +54,8 @@ namespace StonksWeb
             Income.InnerText = FinancialPlanController.ActivePlan.Income.ToString("€#.#");
             Spendings.InnerText = FinancialPlanController.ActivePlan.GetSpendings().ToString("€#.#");
             Savings.InnerText = savings.ToString("€#.#");
-
         }
+
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
             foreach (KeyValuePair<ExpenseType, TextBox> boxType in boxTypeList)
@@ -56,11 +68,9 @@ namespace StonksWeb
             }
         }
 
-
         protected void SetRangeSlider()
         {
         }
-
 
     }
 }
