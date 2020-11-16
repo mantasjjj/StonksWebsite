@@ -20,14 +20,14 @@ namespace StonksWeb
         {
             boxTypeList = new Dictionary<ExpenseType, TextBox>()
             {
-                { ExpenseType.Housing, TextBoxHousing },
-                { ExpenseType.Groceries, TextBoxGroceries },
-                { ExpenseType.Transportation, TextBoxTransportation },
-                { ExpenseType.Entertainment, TextBoxEntertainment },
-                { ExpenseType.Health, TextBoxHealth },
-                { ExpenseType.Shopping, TextBoxShopping },
-                { ExpenseType.Utilities, TextBoxUtilities },
-                { ExpenseType.Other, TextBoxOther }
+                { ExpenseType.Housing, TextBoxHousingActual },
+                { ExpenseType.Groceries, TextBoxGroceriesActual },
+                { ExpenseType.Transportation, TextBoxTransportationActual },
+                { ExpenseType.Entertainment, TextBoxEntertainmentActual },
+                { ExpenseType.Health, TextBoxHealthActual },
+                { ExpenseType.Shopping, TextBoxShoppingActual },
+                { ExpenseType.Utilities, TextBoxUtilitiesActual },
+                { ExpenseType.Other, TextBoxOtherActual }
             };
 
             Double savings = FinancialPlanController.ActivePlan.Income - FinancialPlanController.ActivePlan.GetSpendings();

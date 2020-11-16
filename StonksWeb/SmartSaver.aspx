@@ -32,7 +32,7 @@
         </div>
         <h3 class="currentDate smart-h3">Current date:  <%: DateTime.Now.ToString("yyyy-M-dd") %></h3>
             <div class="row slider-margin">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <div class="slidecontainer">
                         <input type="range" min="1" max="100" value="50" class="slider" runat="server" id="Housing" style="margin-left: 0;" />
                     </div>
@@ -40,10 +40,13 @@
                 <div class="col-md-3 smart-text__display">
                     <asp:TextBox ID="TextBoxHousing" type="text" class="smart-text" runat="server"></asp:TextBox>
                 </div>
+                <div class="col-md-3 smart-text__display">
+                    <asp:TextBox ID="TextBoxHousingActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
+                </div>
             </div>
             
             <div class="row slider-margin">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <div class="slidecontainer">
                         <input type="range" min="1" max="100" value="50" class="slider" runat="server" id="Groceries"/>
                     </div>
@@ -51,10 +54,13 @@
                 <div class="col-md-3 smart-text__display">
                     <asp:TextBox ID="TextBoxGroceries" type="text" class="smart-text" runat="server"></asp:TextBox>
                 </div>
+                <div class="col-md-3 smart-text__display">
+                    <asp:TextBox ID="TextBoxGroceriesActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
+                </div>
             </div>
 
         <div class="row slider-margin">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <div class="slidecontainer">
                         <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Transportation"/>
                     </div>
@@ -62,10 +68,13 @@
                 <div class="col-md-3 smart-text__display">
                     <asp:TextBox ID="TextBoxTransportation" type="text" class="smart-text" runat="server"></asp:TextBox>
                 </div>
+            <div class="col-md-3 smart-text__display">
+                    <asp:TextBox ID="TextBoxTransportationActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
+                </div>
             </div>
 
         <div class="row slider-margin">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <div class="slidecontainer">
                         <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Entertainment"/>
                     </div>
@@ -73,10 +82,13 @@
                 <div class="col-md-3 smart-text__display">
                     <asp:TextBox ID="TextBoxEntertainment" type="text" class="smart-text" runat="server"></asp:TextBox>
                 </div>
+                <div class="col-md-3 smart-text__display">
+                    <asp:TextBox ID="TextBoxEntertainmentActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
+                </div>
             </div>
 
         <div class="row slider-margin">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="slidecontainer">
                     <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Shopping"/>
                 </div>
@@ -84,10 +96,13 @@
             <div class="col-md-3 smart-text__display">
                 <asp:TextBox ID="TextBoxShopping" type="text" class="smart-text" runat="server"></asp:TextBox>
             </div>
+            <div class="col-md-3 smart-text__display">
+                <asp:TextBox ID="TextBoxShoppingActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
+            </div>
         </div>
 
         <div class="row slider-margin">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="slidecontainer">
                     <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Health"/>
                 </div>
@@ -95,10 +110,13 @@
             <div class="col-md-3 smart-text__display">
                 <asp:TextBox ID="TextBoxHealth" type="text" class="smart-text" runat="server"></asp:TextBox>
             </div>
+            <div class="col-md-3 smart-text__display">
+                <asp:TextBox ID="TextBoxHealthActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
+            </div>
         </div>
 
         <div class="row slider-margin">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="slidecontainer">
                     <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Utilities"/>
                 </div>
@@ -106,16 +124,22 @@
             <div class="col-md-3 smart-text__display">
                 <asp:TextBox ID="TextBoxUtilities" type="text" class="smart-text" runat="server"></asp:TextBox>
             </div>
+            <div class="col-md-3 smart-text__display">
+               <asp:TextBox ID="TextBoxUtilitiesActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
+            </div>
         </div>
 
         <div class="row slider-margin">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="slidecontainer">
                     <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Other"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
                 <asp:TextBox ID="TextBoxOther" type="text" class="smart-text" runat="server"></asp:TextBox>
+            </div>
+            <div class="col-md-3 smart-text__display">
+                <asp:TextBox ID="TextBoxOtherActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
             </div>
         </div>
 
