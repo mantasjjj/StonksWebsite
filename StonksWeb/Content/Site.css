@@ -898,3 +898,15 @@ section {
 .login-sign:hover, .login-sign:focus{
     color: #fff;
 }
+
+/*--------------------------------------------------------------
+# Modal
+--------------------------------------------------------------*/
+
+.modal-dialog{
+    font-size: 2rem;
+}
+
+.modal-title{
+    font-size: 2rem;
+}

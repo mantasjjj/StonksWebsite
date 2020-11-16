@@ -144,12 +144,46 @@
         </div>
 
         <asp:Button ID="ButtonSave" runat="server" type="submit" class="btn btn-success btn-login" Text="Save Plan"/>
-        <asp:Button ID="ButtonLogin" runat="server" type="submit" class="btn btn-primary btn-login" Text="Add A Goal"/>
+      <!--  <asp:Button ID="ButtonLogin" runat="server" type="submit" class="btn btn-primary btn-login" Text="Add A Goal" data-toggle="modal" data-target="#exampleModal"/> -->
+
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-login" data-toggle="modal" data-target="#staticBackdrop">
+          Add a Goal
+        </button>
+
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add a goal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+             <div class="modal-body container-progress">
+                <div class="form-group">
+                    <label>Goal Name</label>
+                    <asp:TextBox ID="TextBoxGoalName" type="text" class="form-control" runat="server"></asp:TextBox>
+                  </div>
+                 <div class="form-group">
+                    <label>Goal Price</label>
+                    <asp:TextBox ID="TextBoxGoalPrice" type="text" class="form-control" runat="server"></asp:TextBox>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-bottom: 0;">Close</button>
+                <asp:Button type="button" class="btn btn-primary" runat="server" Text="Add a goal" />
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="goals">
 
         </div>
 
     </div>
-    <script src="Scripts/Main.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </asp:Content>
