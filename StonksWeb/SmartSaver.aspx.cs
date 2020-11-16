@@ -10,11 +10,11 @@ namespace StonksWeb
     public partial class SmartSaver : Page
     {
         Dictionary<ExpenseType, TextBox> boxTypeList;
-        Dictionary<ExpenseType, object> sliderTypeList; //need help with the type of "sliders", object seems to be read-only
+        Dictionary<ExpenseType, global::System.Web.UI.HtmlControls.HtmlInputGenericControl> sliderTypeList;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            sliderTypeList = new Dictionary<ExpenseType, object>()
+            sliderTypeList = new Dictionary<ExpenseType, global::System.Web.UI.HtmlControls.HtmlInputGenericControl>()
             {
                 { ExpenseType.Housing, HousingSlider},
                 { ExpenseType.Groceries, GroceriesSlider },
@@ -26,12 +26,12 @@ namespace StonksWeb
                 { ExpenseType.Other, OtherSlider }
             };
 
-            foreach (KeyValuePair<ExpenseType, object> sliderType in sliderTypeList)
+            foreach (KeyValuePair<ExpenseType, global::System.Web.UI.HtmlControls.HtmlInputGenericControl> sliderType in sliderTypeList)
             {
                 var expense = FinancialPlanController.ActivePlan.GetExpense(sliderType.Key);
                 if (expense != null)
                 {
-                    //assign the Value of the slider
+                    sliderType.Value.Value = expense.Value.ToString();
                 }
             }
         }
