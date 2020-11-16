@@ -10,10 +10,30 @@ namespace StonksWeb
     public partial class SmartSaver : Page
     {
         Dictionary<ExpenseType, TextBox> boxTypeList;
-        
+        Dictionary<ExpenseType, global::System.Web.UI.HtmlControls.HtmlInputGenericControl> sliderTypeList;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            sliderTypeList = new Dictionary<ExpenseType, global::System.Web.UI.HtmlControls.HtmlInputGenericControl>()
+            {
+                { ExpenseType.Housing, HousingSlider},
+                { ExpenseType.Groceries, GroceriesSlider },
+                { ExpenseType.Transportation, TransportationSlider },
+                { ExpenseType.Entertainment, EntertainmentSlider },
+                { ExpenseType.Health, HealthSlider },
+                { ExpenseType.Shopping, ShoppingSlider },
+                { ExpenseType.Utilities, UtilitiesSlider },
+                { ExpenseType.Other, OtherSlider }
+            };
+
+            foreach (KeyValuePair<ExpenseType, global::System.Web.UI.HtmlControls.HtmlInputGenericControl> sliderType in sliderTypeList)
+            {
+                var expense = FinancialPlanController.ActivePlan.GetExpense(sliderType.Key);
+                if (expense != null)
+                {
+                    sliderType.Value.Value = expense.Value.ToString();
+                }
+            }
         }
 
         protected void Page_Init(object sender, EventArgs e)
@@ -35,6 +55,7 @@ namespace StonksWeb
             Spendings.InnerText = FinancialPlanController.ActivePlan.GetSpendings().ToString("€#.#");
             Savings.InnerText = savings.ToString("€#.#");
         }
+
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
             foreach (KeyValuePair<ExpenseType, TextBox> boxType in boxTypeList)
@@ -45,6 +66,10 @@ namespace StonksWeb
                     boxType.Value.Text = expense.Value.ToString();
                 }
             }
+        }
+
+        protected void SetRangeSlider()
+        {
         }
 
     }
