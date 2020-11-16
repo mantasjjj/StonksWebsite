@@ -42,13 +42,13 @@ namespace StonksWeb
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Spendings;
 
         /// <summary>
-        /// Housing control.
+        /// HousingSlider control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Housing;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl HousingSlider;
 
         /// <summary>
         /// TextBoxHousing control.
@@ -60,13 +60,13 @@ namespace StonksWeb
         protected global::System.Web.UI.WebControls.TextBox TextBoxHousing;
 
         /// <summary>
-        /// Groceries control.
+        /// GroceriesSlider control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Groceries;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl GroceriesSlider;
 
         /// <summary>
         /// TextBoxGroceries control.
@@ -78,13 +78,13 @@ namespace StonksWeb
         protected global::System.Web.UI.WebControls.TextBox TextBoxGroceries;
 
         /// <summary>
-        /// Transportation control.
+        /// TransportationSlider control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Transportation;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl TransportationSlider;
 
         /// <summary>
         /// TextBoxTransportation control.
@@ -96,13 +96,13 @@ namespace StonksWeb
         protected global::System.Web.UI.WebControls.TextBox TextBoxTransportation;
 
         /// <summary>
-        /// Entertainment control.
+        /// EntertainmentSlider control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Entertainment;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl EntertainmentSlider;
 
         /// <summary>
         /// TextBoxEntertainment control.
@@ -114,13 +114,13 @@ namespace StonksWeb
         protected global::System.Web.UI.WebControls.TextBox TextBoxEntertainment;
 
         /// <summary>
-        /// Shopping control.
+        /// ShoppingSlider control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Shopping;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl ShoppingSlider;
 
         /// <summary>
         /// TextBoxShopping control.
@@ -132,13 +132,13 @@ namespace StonksWeb
         protected global::System.Web.UI.WebControls.TextBox TextBoxShopping;
 
         /// <summary>
-        /// Health control.
+        /// HealthSlider control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Health;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl HealthSlider;
 
         /// <summary>
         /// TextBoxHealth control.
@@ -150,13 +150,13 @@ namespace StonksWeb
         protected global::System.Web.UI.WebControls.TextBox TextBoxHealth;
 
         /// <summary>
-        /// Utilities control.
+        /// UtilitiesSlider control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Utilities;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl UtilitiesSlider;
 
         /// <summary>
         /// TextBoxUtilities control.
@@ -168,13 +168,13 @@ namespace StonksWeb
         protected global::System.Web.UI.WebControls.TextBox TextBoxUtilities;
 
         /// <summary>
-        /// Other control.
+        /// OtherSlider control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Other;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl OtherSlider;
 
         /// <summary>
         /// TextBoxOther control.

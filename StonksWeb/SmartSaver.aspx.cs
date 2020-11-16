@@ -14,15 +14,6 @@ namespace StonksWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var HousingSlider = Housing;
-            var GroceriesSlider = Housing;
-            var TransportationSlider = Transportation;
-            var EntertainmentSlider = Entertainment;
-            var HealthSlider = Health;
-            var ShoppingSlider = Shopping;
-            var UtilitiesSlider = Utilities;
-            var OtherSlider = Other;
-
             HousingSlider.Value = FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Housing).Value.ToString();
             GroceriesSlider.Value = FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Groceries).Value.ToString();
             TransportationSlider.Value = FinancialPlanController.ActivePlan.GetExpense(ExpenseType.Transportation).Value.ToString();
