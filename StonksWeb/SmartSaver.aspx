@@ -30,12 +30,6 @@
                 </h3>
             </div>
         </div>
-                <script> 
-                    function DisplayChange(newvalue) {
-                        document.getElementById("Goals").innerHTML = newvalue;
-                        PageMethods.UpdateValue();
-                    }
-                </script> 
         <h3 class="currentDate smart-h3">Current date:  <%: DateTime.Now.ToString("yyyy-M-dd") %></h3>
          <div class="row" style="margin-bottom: 2%;">
             <div class="col-md-3">
@@ -51,7 +45,7 @@
             <div class="row slider-margin">
                 <div class="col-md-6">
                     <div class="slidecontainer">
-                        <input type="range" min="1" max="100" value="50" class="slider" runat="server" id="HousingSlider" style="margin-left: 0;" oninput="DisplayChange(this.value)"/>
+                        <input type="range" min="1" max="100" value="50" class="slider" runat="server" id="HousingSlider" style="margin-left: 0;" />
                     </div>
                 </div>
                 <div class="col-md-3 smart-text__display">
@@ -195,8 +189,9 @@
             </div>
           </div>
         </div>
+                
+        <div class="goals">
 
-        <div ID="Goals" class="goals">
         </div>
 
     </div>
