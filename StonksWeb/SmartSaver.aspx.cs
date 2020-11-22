@@ -11,6 +11,7 @@ namespace StonksWeb
     {
         Dictionary<ExpenseType, TextBox> boxTypeList;
         Dictionary<ExpenseType, global::System.Web.UI.HtmlControls.HtmlInputGenericControl> sliderTypeList;
+        Dictionary<ExpenseType, TextBox> textBoxTypeList;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,6 +26,17 @@ namespace StonksWeb
                 { ExpenseType.Utilities, UtilitiesSlider },
                 { ExpenseType.Other, OtherSlider }
             };
+            textBoxTypeList = new Dictionary<ExpenseType, TextBox>()
+            {
+                { ExpenseType.Housing, TextBoxHousing},
+                { ExpenseType.Groceries, TextBoxGroceries },
+                { ExpenseType.Transportation, TextBoxTransportation },
+                { ExpenseType.Entertainment, TextBoxEntertainment },
+                { ExpenseType.Health, TextBoxHealth },
+                { ExpenseType.Shopping, TextBoxShopping },
+                { ExpenseType.Utilities, TextBoxUtilities },
+                { ExpenseType.Other, TextBoxOther }
+            };
 
             foreach (KeyValuePair<ExpenseType, global::System.Web.UI.HtmlControls.HtmlInputGenericControl> sliderType in sliderTypeList)
             {
@@ -32,6 +44,15 @@ namespace StonksWeb
                 if (expense != null)
                 {
                     sliderType.Value.Value = expense.Value.ToString();
+                }
+            }
+
+            foreach (KeyValuePair<ExpenseType, TextBox> boxType in textBoxTypeList)
+            {
+                var expense = FinancialPlanController.ActivePlan.GetExpense(boxType.Key);
+                if (expense != null)
+                {
+                    boxType.Value.Text = expense.Value.ToString();
                 }
             }
         }

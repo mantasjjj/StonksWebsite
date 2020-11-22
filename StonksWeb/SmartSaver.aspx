@@ -31,6 +31,17 @@
             </div>
         </div>
         <h3 class="currentDate smart-h3">Current date:  <%: DateTime.Now.ToString("yyyy-M-dd") %></h3>
+         <div class="row" style="margin-bottom: 2%;">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-5">
+                <h3 class="smart-h3">
+                    Planned values / Actual values
+                </h3>
+            </div>
+        </div>
             <div class="row slider-margin">
                 <div class="col-md-6">
                     <div class="slidecontainer">
