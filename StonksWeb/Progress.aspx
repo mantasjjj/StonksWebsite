@@ -6,7 +6,6 @@
     <div class="jumbotron jumbotron-fluid progress-back">
       <div class="container">
         <h1 class="title"><%: Title %></h1>
-        
       </div>
     </div>
     <div class="container-progress">
@@ -17,6 +16,8 @@
         </p>
         <div class="row" style="margin-bottom: 4%;">
             <div class="col-md-3">
+
+                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
 
             </div>
             <div class="col-md-3">
@@ -32,6 +33,7 @@
         </div>
           
         <h2 class="smart-h2">Your monthly expense chart</h2>
+        
         <asp:Chart ID="chartPlanned" runat="server" Height="500px" Palette="SemiTransparent" Width="624px">
             <series>
                 <asp:Series Name="Monthly Expenses" Legend="Legend1">

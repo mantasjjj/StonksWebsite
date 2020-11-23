@@ -23,6 +23,7 @@
                 <h3 class="smart-h3">
                     Savings: <p class="smart-p" runat="server" id="Savings">0.00</p>
                 </h3>
+
             </div>
             <div class="col-md-4">
                 <h3 class="smart-h3">

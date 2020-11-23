@@ -23,7 +23,7 @@ namespace StonksWeb
             Spendings.InnerText = FinancialPlanController.ActivePlan.GetSpendings().ToString("€#.#");
         }
 
-            private void FillChart()
+        private void FillChart()
         {
             chartPlanned.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.Transparent;
             chartPlanned.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.Transparent;
@@ -37,14 +37,23 @@ namespace StonksWeb
             //ExpensesChart 
             foreach (Expense expense in FinancialPlanController.ActivePlan.Expenses)
             {
-
-                if (FinancialPlanController.ActivePlan.GetExpense(expense.Type) != null)
+                try
                 {
                     chartPlanned.Series["Monthly Expenses"].Points
-                        .AddXY(FinancialPlanController.ActivePlan.GetExpense(expense.Type).ToString(),
-                        FinancialPlanController.ActivePlan.GetExpense(expense.Type).Value);
+                    .AddXY(FinancialPlanController.ActivePlan.GetExpense(expense.Type).ToString(),
+                    FinancialPlanController.ActivePlan.GetExpense(expense.Type).Value);
+                }
+                catch(Exception e)
+                {
+                    LoadError(e);
                 }
             }
+        }
+
+        private void LoadError(Exception e) {
+            Console.WriteLine(e);
+            Console.Write("There was an error loading some data");
+            Label1.Text = "There was an error trying to load the data." + e;
         }
     }
 }
