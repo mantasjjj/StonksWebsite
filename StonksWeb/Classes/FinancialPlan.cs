@@ -65,6 +65,17 @@ namespace StonksWeb
             Expenses.Add(expense);
         }
 
+        //adds new or replaces existing expense
+        public void ModifyExpensePlannedValue(ExpenseType type, double value)
+        {
+            if (Expenses.Select(x => x.Type == type).Count() != 0)
+            {
+                var expense = Expenses.Where(x => x.Type == type).FirstOrDefault();
+                expense.PlannedValue = value;
+                Expenses.Add(expense);
+            }
+        }
+
         //returns false if item not found
         public bool RemoveExpense(Expense expense)
         {

@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace StonksWeb
 {
+    public delegate void Notify();  // delegate
+
     [Serializable]
     class FinancialGoal : ICloneable
     {
@@ -11,6 +14,8 @@ namespace StonksWeb
         public String Name { get; set; }
         public double AllocatedFunds { get; set; }
         public double TimeToDeadline { get; set; } // if deadline not determined, then equals -1
+
+        public event Notify DeadlineReached; // event
 
         public FinancialGoal()
         {
@@ -30,6 +35,7 @@ namespace StonksWeb
         {
             TimeToDeadline = (DateTime.Now - dealineIn).TotalDays / (UseYears ? 365 : 30);
             AllocatedFunds = Value / TimeToDeadline;
+            ScheduleAction(OnDeadlineReached, DateTime.Now + TimeSpan.FromDays(TimeToDeadline * (UseYears ? 365 : 30)));
             return true;
         }
 
@@ -44,7 +50,6 @@ namespace StonksWeb
             }
             
         }
-
 
         public bool SetDeadlineByFunds(double value)
         {
@@ -71,6 +76,28 @@ namespace StonksWeb
             clone.AllocatedFunds = AllocatedFunds;
             clone.TimeToDeadline = TimeToDeadline;
             return clone;
+        }
+
+        public async void ScheduleAction(Action action, DateTime ExecutionTime)
+        {
+            try
+            {
+                await Task.Delay(ExecutionTime.Subtract(DateTime.Now));
+            }
+            catch
+            {
+                // exception thrown, because time has already passed. Call action anyway.
+            }
+            finally
+            {
+                action();
+            }
+        }
+
+        protected virtual void OnDeadlineReached() //protected virtual method
+        {
+            //if DeadlineReached is not null then call delegate
+            DeadlineReached?.Invoke();
         }
     }
 }
