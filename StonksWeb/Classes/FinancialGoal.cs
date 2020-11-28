@@ -36,7 +36,7 @@ namespace StonksWeb
             TimeToDeadline = (DateTime.Now - dealineIn).TotalDays / (UseYears ? 365 : 30);
             AllocatedFunds = Value / TimeToDeadline;
             DeadlineReached += SmartSaver.DeadlineReached_Popup;
-            OnDeadlineReached(DateTime.Now + TimeSpan.FromDays(TimeToDeadline * (UseYears ? 365 : 30)));
+            OnDeadlineReached(TimeSpan.FromDays(TimeToDeadline * (UseYears ? 365 : 30)));
             return true;
         }
 
@@ -79,11 +79,11 @@ namespace StonksWeb
             return clone;
         }
 
-        protected virtual async void OnDeadlineReached(DateTime ExecutionTime)
+        protected virtual async void OnDeadlineReached(TimeSpan ExecutionTime)
         {
             try
             {
-                await Task.Delay(ExecutionTime.Subtract(DateTime.Now));
+                await Task.Delay(ExecutionTime);
             }
             catch
             {
