@@ -81,5 +81,10 @@ namespace StonksWeb
             FinancialPlanController.ActivePlan.ModifyExpensePlannedValue(expenseMap.Where(x => x.Slider == slider).FirstOrDefault().Type, Double.Parse(slider.Value));
             expenseMap.Where(x => x.Slider == slider).FirstOrDefault().Text.Text = slider.Value;
         }
+
+        public static void DeadlineReached_Popup()
+        {
+            //popup
+        }
     }
 }
