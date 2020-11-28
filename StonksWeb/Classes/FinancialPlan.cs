@@ -94,8 +94,9 @@ namespace StonksWeb
             {
                 return Expenses.Sum(x => x.Value);
             }
-            catch 
+            catch(Exception e)
             {
+                Console.WriteLine(e);
                 return 0;
             }
         }
@@ -106,8 +107,9 @@ namespace StonksWeb
             {
                 return Expenses.Max(x => x.Value);
             }
-            catch 
+            catch (Exception e)
             {
+                Console.WriteLine(e);
                 return 0;
             }
         }
