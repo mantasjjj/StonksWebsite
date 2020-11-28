@@ -35,7 +35,8 @@ namespace StonksWeb
         {
             TimeToDeadline = (DateTime.Now - dealineIn).TotalDays / (UseYears ? 365 : 30);
             AllocatedFunds = Value / TimeToDeadline;
-            ScheduleAction(OnDeadlineReached, DateTime.Now + TimeSpan.FromDays(TimeToDeadline * (UseYears ? 365 : 30)));
+            DeadlineReached += SmartSaver.DeadlineReached_Popup;
+            OnDeadlineReached(DateTime.Now + TimeSpan.FromDays(TimeToDeadline * (UseYears ? 365 : 30)));
             return true;
         }
 
@@ -78,7 +79,7 @@ namespace StonksWeb
             return clone;
         }
 
-        public async void ScheduleAction(Action action, DateTime ExecutionTime)
+        protected virtual async void OnDeadlineReached(DateTime ExecutionTime)
         {
             try
             {
@@ -86,18 +87,13 @@ namespace StonksWeb
             }
             catch
             {
-                // exception thrown, because time has already passed. Call action anyway.
+                // exception thrown, because deadline is in the past. Call anyway.
             }
             finally
             {
-                action();
+                //if DeadlineReached is not null then call delegate
+                DeadlineReached?.Invoke();
             }
-        }
-
-        protected virtual void OnDeadlineReached() //protected virtual method
-        {
-            //if DeadlineReached is not null then call delegate
-            DeadlineReached?.Invoke();
         }
     }
 }
