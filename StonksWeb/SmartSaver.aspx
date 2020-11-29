@@ -32,7 +32,7 @@
             </div>
         </div>
         <h3 class="currentDate smart-h3">Current date:  <%: DateTime.Now.ToString("yyyy-M-dd") %></h3>
-         <div class="row" style="margin-bottom: 2%;">
+        <div class="row" style="margin-bottom: 2%;">
             <div class="col-md-3">
             </div>
             <div class="col-md-3">
@@ -43,117 +43,165 @@
                 </h3>
             </div>
         </div>
-            <div class="row slider-margin">
-                <div class="col-md-6">
-                    <div class="slidecontainer">
-                        <input type="range" min="1" max="100" value="50" class="slider" runat="server" id="HousingSlider" style="margin-left: 0;" />
-                    </div>
-                </div>
-                <div class="col-md-3 smart-text__display">
-                    <asp:TextBox ID="TextBoxHousing" type="text" class="smart-text" runat="server"></asp:TextBox>
-                </div>
-                <div class="col-md-3 smart-text__display">
-                    <asp:TextBox ID="TextBoxHousingActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
-                </div>
-            </div>
-            
-            <div class="row slider-margin">
-                <div class="col-md-6">
-                    <div class="slidecontainer">
-                        <input type="range" min="1" max="100" value="50" class="slider" runat="server" id="GroceriesSlider"/>
-                    </div>
-                </div>
-                <div class="col-md-3 smart-text__display">
-                    <asp:TextBox ID="TextBoxGroceries" type="text" class="smart-text" runat="server"></asp:TextBox>
-                </div>
-                <div class="col-md-3 smart-text__display">
-                    <asp:TextBox ID="TextBoxGroceriesActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
-                </div>
-            </div>
-
         <div class="row slider-margin">
-                <div class="col-md-6">
-                    <div class="slidecontainer">
-                        <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="TransportationSlider"/>
-                    </div>
+            <div class="col-md-6">
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="HousingSlider" style="margin-left: 0;" oninput="updateTextBoxHousing(this.value);"/>
                 </div>
-                <div class="col-md-3 smart-text__display">
-                    <asp:TextBox ID="TextBoxTransportation" type="text" class="smart-text" runat="server"></asp:TextBox>
-                </div>
+            </div>
             <div class="col-md-3 smart-text__display">
-                    <asp:TextBox ID="TextBoxTransportationActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
-                </div>
+                <asp:TextBox ID="TextBoxHousing" type="text" class="smart-text" runat="server" Text="50"></asp:TextBox>
             </div>
-
+            <div class="col-md-3 smart-text__display">
+                <asp:TextBox ID="TextBoxHousingActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
+            </div>
+        </div>
+        <script>
+            function updateTextBoxHousing(val)
+            {
+                document.getElementById("<%=TextBoxHousing.ClientID%>").value=val; 
+            }
+        </script>
+            
         <div class="row slider-margin">
-                <div class="col-md-6">
-                    <div class="slidecontainer">
-                        <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="EntertainmentSlider"/>
-                    </div>
-                </div>
-                <div class="col-md-3 smart-text__display">
-                    <asp:TextBox ID="TextBoxEntertainment" type="text" class="smart-text" runat="server"></asp:TextBox>
-                </div>
-                <div class="col-md-3 smart-text__display">
-                    <asp:TextBox ID="TextBoxEntertainmentActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
+            <div class="col-md-6">
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="GroceriesSlider" style="margin-left: 0;" oninput="updateTextBoxGroceries(this.value);"/>
                 </div>
             </div>
+            <div class="col-md-3 smart-text__display">
+                <asp:TextBox ID="TextBoxGroceries" type="text" class="smart-text" runat="server" Text="50"></asp:TextBox>
+            </div>
+            <div class="col-md-3 smart-text__display">
+                <asp:TextBox ID="TextBoxGroceriesActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
+            </div>
+        </div>
+        <script>
+            function updateTextBoxGroceries(val)
+            {
+                document.getElementById("<%=TextBoxGroceries.ClientID%>").value=val; 
+            }
+        </script>
 
         <div class="row slider-margin">
             <div class="col-md-6">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="ShoppingSlider"/>
+                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="TransportationSlider" style="margin-left: 0;" oninput="updateTextBoxTransportation(this.value);"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
-                <asp:TextBox ID="TextBoxShopping" type="text" class="smart-text" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBoxTransportation" type="text" class="smart-text" runat="server" Text="50"></asp:TextBox>
+            </div>
+        <div class="col-md-3 smart-text__display">
+                <asp:TextBox ID="TextBoxTransportationActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
+            </div>
+        </div>
+        <script>
+            function updateTextBoxTransportation(val)
+            {
+                document.getElementById("<%=TextBoxTransportation.ClientID%>").value=val; 
+            }
+        </script>
+
+        <div class="row slider-margin">
+            <div class="col-md-6">
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="EntertainmentSlider" style="margin-left: 0;" oninput="updateTextBoxEntertainment(this.value);"/>
+                </div>
+            </div>
+            <div class="col-md-3 smart-text__display">
+                <asp:TextBox ID="TextBoxEntertainment" type="text" class="smart-text" runat="server" Text="50"></asp:TextBox>
+            </div>
+            <div class="col-md-3 smart-text__display">
+                <asp:TextBox ID="TextBoxEntertainmentActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
+            </div>
+        </div>
+        <script>
+            function updateTextBoxEntertainment(val)
+            {
+                document.getElementById("<%=TextBoxEntertainment.ClientID%>").value=val; 
+            }
+        </script>
+
+        <div class="row slider-margin">
+            <div class="col-md-6">
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="ShoppingSlider" style="margin-left: 0;" oninput="updateTextBoxShopping(this.value);"/>
+                </div>
+            </div>
+            <div class="col-md-3 smart-text__display">
+                <asp:TextBox ID="TextBoxShopping" type="text" class="smart-text" runat="server" Text="50"></asp:TextBox>
             </div>
             <div class="col-md-3 smart-text__display">
                 <asp:TextBox ID="TextBoxShoppingActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
             </div>
         </div>
+        <script>
+            function updateTextBoxShopping(val)
+            {
+                document.getElementById("<%=TextBoxShopping.ClientID%>").value=val; 
+            }
+        </script>
 
         <div class="row slider-margin">
             <div class="col-md-6">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="HealthSlider"/>
+                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="HealthSlider" style="margin-left: 0;" oninput="updateTextBoxHealth(this.value);"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
-                <asp:TextBox ID="TextBoxHealth" type="text" class="smart-text" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBoxHealth" type="text" class="smart-text" runat="server" Text="50"></asp:TextBox>
             </div>
             <div class="col-md-3 smart-text__display">
                 <asp:TextBox ID="TextBoxHealthActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
             </div>
         </div>
+        <script>
+            function updateTextBoxHealth(val)
+            {
+                document.getElementById("<%=TextBoxHealth.ClientID%>").value=val; 
+            }
+        </script>
 
         <div class="row slider-margin">
             <div class="col-md-6">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="UtilitiesSlider"/>
+                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="UtilitiesSlider" style="margin-left: 0;" oninput="updateTextBoxUtilities(this.value);"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
-                <asp:TextBox ID="TextBoxUtilities" type="text" class="smart-text" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBoxUtilities" type="text" class="smart-text" runat="server" Text="50"></asp:TextBox>
             </div>
             <div class="col-md-3 smart-text__display">
                <asp:TextBox ID="TextBoxUtilitiesActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
             </div>
         </div>
+        <script>
+            function updateTextBoxUtilities(val)
+            {
+                document.getElementById("<%=TextBoxUtilities.ClientID%>").value=val; 
+            }
+        </script>
 
         <div class="row slider-margin">
             <div class="col-md-6">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="OtherSlider"/>
+                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="OtherSlider" style="margin-left: 0;" oninput="updateTextBoxOther(this.value);"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
-                <asp:TextBox ID="TextBoxOther" type="text" class="smart-text" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBoxOther" type="text" class="smart-text" runat="server" Text="50"></asp:TextBox>
             </div>
             <div class="col-md-3 smart-text__display">
                 <asp:TextBox ID="TextBoxOtherActual" type="text" class="smart-text smart-text-actual" runat="server" ReadOnly="true"></asp:TextBox>
             </div>
         </div>
+        <script>
+            function updateTextBoxOther(val)
+            {
+                document.getElementById("<%=TextBoxOther.ClientID%>").value=val; 
+            }
+        </script>
 
         <asp:Button ID="ButtonSave" runat="server" type="submit" class="btn btn-success btn-login" Text="Save Plan"/>
       <!--  <asp:Button ID="ButtonLogin" runat="server" type="submit" class="btn btn-primary btn-login" Text="Add A Goal" data-toggle="modal" data-target="#exampleModal"/> -->

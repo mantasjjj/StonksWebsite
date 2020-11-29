@@ -15,13 +15,8 @@ namespace StonksWeb
         public double AllocatedFunds { get; set; }
         public double TimeToDeadline { get; set; } // if deadline not determined, then equals -1
 
-        public event Notify DeadlineReached; // event
-
-        public FinancialGoal()
-        {
-            AllocatedFunds = 0;
-            TimeToDeadline = -1;
-        }
+        public delegate void DeadlineReachedEventHandler(object source, EventArgs args);
+        public event DeadlineReachedEventHandler DeadlineReached; // event
 
         public FinancialGoal(double value, String name)
         {
@@ -35,7 +30,8 @@ namespace StonksWeb
         {
             TimeToDeadline = (DateTime.Now - dealineIn).TotalDays / (UseYears ? 365 : 30);
             AllocatedFunds = Value / TimeToDeadline;
-            ScheduleAction(OnDeadlineReached, DateTime.Now + TimeSpan.FromDays(TimeToDeadline * (UseYears ? 365 : 30)));
+            DeadlineReached += SmartSaver.OnDeadlineReached;
+            OnDeadlineReached(TimeSpan.FromDays(TimeToDeadline * (UseYears ? 365 : 30)));
             return true;
         }
 
@@ -78,26 +74,21 @@ namespace StonksWeb
             return clone;
         }
 
-        public async void ScheduleAction(Action action, DateTime ExecutionTime)
+        protected virtual async void OnDeadlineReached(TimeSpan ExecutionTime)
         {
             try
             {
-                await Task.Delay(ExecutionTime.Subtract(DateTime.Now));
+                await Task.Delay(ExecutionTime);
             }
             catch
             {
-                // exception thrown, because time has already passed. Call action anyway.
+                // exception thrown, because deadline is in the past. Call anyway.
             }
             finally
             {
-                action();
+                //if DeadlineReached is not null then call delegate
+                DeadlineReached?.Invoke(this, EventArgs.Empty);
             }
-        }
-
-        protected virtual void OnDeadlineReached() //protected virtual method
-        {
-            //if DeadlineReached is not null then call delegate
-            DeadlineReached?.Invoke();
         }
     }
 }

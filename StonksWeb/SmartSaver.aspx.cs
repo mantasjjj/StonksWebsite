@@ -24,7 +24,9 @@ namespace StonksWeb
 
     public partial class SmartSaver : Page
     {
-        static List<ExpenseMap> expenseMap;
+        private static List<ExpenseMap> expenseMap;
+        private static bool DeadlineReachedVisible = false;
+        private static List<String> ReachedGoalNames = new List<String>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -80,6 +82,12 @@ namespace StonksWeb
             HtmlInputGenericControl slider = new HtmlInputGenericControl();
             FinancialPlanController.ActivePlan.ModifyExpensePlannedValue(expenseMap.Where(x => x.Slider == slider).FirstOrDefault().Type, Double.Parse(slider.Value));
             expenseMap.Where(x => x.Slider == slider).FirstOrDefault().Text.Text = slider.Value;
+        }
+
+        public static void OnDeadlineReached(object source, EventArgs args)
+        {
+            DeadlineReachedVisible = true;
+            ReachedGoalNames.Add(((FinancialGoal)source).Name);
         }
     }
 }
