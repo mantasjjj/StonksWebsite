@@ -24,7 +24,9 @@ namespace StonksWeb
 
     public partial class SmartSaver : Page
     {
-        static List<ExpenseMap> expenseMap;
+        private static List<ExpenseMap> expenseMap;
+        private static bool DeadlineReachedVisible = false;
+        private static List<String> ReachedGoalNames = new List<String>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -84,7 +86,8 @@ namespace StonksWeb
 
         public static void OnDeadlineReached(object source, EventArgs args)
         {
-            //popup
+            DeadlineReachedVisible = true;
+            ReachedGoalNames.Add(((FinancialGoal)source).Name);
         }
     }
 }

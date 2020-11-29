@@ -18,12 +18,6 @@ namespace StonksWeb
         public delegate void DeadlineReachedEventHandler(object source, EventArgs args);
         public event DeadlineReachedEventHandler DeadlineReached; // event
 
-        public FinancialGoal()
-        {
-            AllocatedFunds = 0;
-            TimeToDeadline = -1;
-        }
-
         public FinancialGoal(double value, String name)
         {
             Value = value;
