@@ -15,7 +15,8 @@ namespace StonksWeb
         public double AllocatedFunds { get; set; }
         public double TimeToDeadline { get; set; } // if deadline not determined, then equals -1
 
-        public event Notify DeadlineReached; // event
+        public delegate void DeadlineReachedEventHandler(object source, EventArgs args);
+        public event DeadlineReachedEventHandler DeadlineReached; // event
 
         public FinancialGoal()
         {
@@ -35,7 +36,7 @@ namespace StonksWeb
         {
             TimeToDeadline = (DateTime.Now - dealineIn).TotalDays / (UseYears ? 365 : 30);
             AllocatedFunds = Value / TimeToDeadline;
-            DeadlineReached += SmartSaver.DeadlineReached_Popup;
+            DeadlineReached += SmartSaver.OnDeadlineReached;
             OnDeadlineReached(TimeSpan.FromDays(TimeToDeadline * (UseYears ? 365 : 30)));
             return true;
         }
@@ -92,7 +93,7 @@ namespace StonksWeb
             finally
             {
                 //if DeadlineReached is not null then call delegate
-                DeadlineReached?.Invoke();
+                DeadlineReached?.Invoke(this, EventArgs.Empty);
             }
         }
     }

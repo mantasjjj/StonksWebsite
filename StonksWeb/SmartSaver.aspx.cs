@@ -82,7 +82,7 @@ namespace StonksWeb
             expenseMap.Where(x => x.Slider == slider).FirstOrDefault().Text.Text = slider.Value;
         }
 
-        public static void DeadlineReached_Popup()
+        public static void OnDeadlineReached(object source, EventArgs args)
         {
             //popup
         }
