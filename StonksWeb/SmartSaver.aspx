@@ -32,6 +32,7 @@
             </div>
         </div>
         <h3 class="currentDate smart-h3">Current date:  <%: DateTime.Now.ToString("yyyy-M-dd") %></h3>
+        <h3 class="smart-expenses-text smart-h3">Your Expenses:</h3>
         <div class="row" style="margin-bottom: 2%;">
             <div class="col-md-3">
             </div>
@@ -44,7 +45,10 @@
             </div>
         </div>
         <div class="row slider-margin">
-            <div class="col-md-6">
+            <div class="col-md-1">
+                <i class="fas fa-home icons" title="Housing"></i>
+            </div>
+            <div class="col-md-5">
                 <div class="slidecontainer">
                     <input type="range" min="0" max="100" value="50" runat="server" class="slider" id="HousingSlider" style="margin-left: 0;" oninput="updateTextBoxHousing(this.value);"/>
                 </div>
@@ -64,7 +68,10 @@
         </script>
             
         <div class="row slider-margin">
-            <div class="col-md-6">
+            <div class="col-md-1">
+               <i class="fas fa-utensils icons" title="Groceries"></i>
+            </div>
+            <div class="col-md-5">
                 <div class="slidecontainer">
                     <input type="range" min="0" max="100" value="50" runat="server" class="slider" id="GroceriesSlider" style="margin-left: 0;" oninput="updateTextBoxGroceries(this.value);"/>
                 </div>
@@ -84,7 +91,10 @@
         </script>
 
         <div class="row slider-margin">
-            <div class="col-md-6">
+            <div class="col-md-1">
+                <i class="fas fa-car icons" title="Transportation"></i>
+            </div>
+            <div class="col-md-5">
                 <div class="slidecontainer">
                     <input type="range" min="0" max="100" value="50" runat="server" class="slider" id="TransportationSlider" style="margin-left: 0;" oninput="updateTextBoxTransportation(this.value);"/>
                 </div>
@@ -104,7 +114,10 @@
         </script>
 
         <div class="row slider-margin">
-            <div class="col-md-6">
+            <div class="col-md-1">
+               <i class="fas fa-table-tennis icons" title="Entertainment"></i>
+            </div>
+            <div class="col-md-5">
                 <div class="slidecontainer">
                     <input type="range" min="0" max="100" value="50" runat="server" class="slider" id="EntertainmentSlider" style="margin-left: 0;" oninput="updateTextBoxEntertainment(this.value);"/>
                 </div>
@@ -124,7 +137,10 @@
         </script>
 
         <div class="row slider-margin">
-            <div class="col-md-6">
+            <div class="col-md-1">
+               <i class="fas fa-shopping-cart icons" title="Shopping"></i>
+            </div>
+            <div class="col-md-5">
                 <div class="slidecontainer">
                     <input type="range" min="0" max="100" value="50" runat="server" class="slider" id="ShoppingSlider" style="margin-left: 0;" oninput="updateTextBoxShopping(this.value);"/>
                 </div>
@@ -144,7 +160,10 @@
         </script>
 
         <div class="row slider-margin">
-            <div class="col-md-6">
+            <div class="col-md-1">
+                <i class="fas fa-heartbeat icons" title="Health"></i>
+            </div>
+            <div class="col-md-5">
                 <div class="slidecontainer">
                     <input type="range" min="0" max="100" value="50" runat="server" class="slider" id="HealthSlider" style="margin-left: 0;" oninput="updateTextBoxHealth(this.value);"/>
                 </div>
@@ -164,7 +183,10 @@
         </script>
 
         <div class="row slider-margin">
-            <div class="col-md-6">
+            <div class="col-md-1">
+               <i class="fas fa-wrench icons" title="Utilities"></i>
+            </div>
+            <div class="col-md-5">
                 <div class="slidecontainer">
                     <input type="range" min="0" max="100" value="50" runat="server" class="slider" id="UtilitiesSlider" style="margin-left: 0;" oninput="updateTextBoxUtilities(this.value);"/>
                 </div>
@@ -184,7 +206,10 @@
         </script>
 
         <div class="row slider-margin">
-            <div class="col-md-6">
+            <div class="col-md-1">
+                <i class="fas fa-align-justify icons" title="Other"></i>
+            </div>
+            <div class="col-md-5">
                 <div class="slidecontainer">
                     <input type="range" min="0" max="100" value="50" runat="server" class="slider" id="OtherSlider" style="margin-left: 0;" oninput="updateTextBoxOther(this.value);"/>
                 </div>
@@ -240,10 +265,51 @@
         </div>
 
         <div class="goals">
+            <h3 class="smart-h3">Your Goals:</h3>
 
-        </div>
+          <div class="goal">
+            <!-- Goal 1st row, used for goal name, price and slider -->
+            <div class="row slider-margin">
+              <div class="col-md-3 smart-text__display">
+                <asp:TextBox ID="TextBox2" type="text" class="smart-text smart-goal-text" runat="server" ReadOnly="true" Text="Goal Name"></asp:TextBox>
+             </div>
+             <div class="col-md-6">
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Range1" style="margin-left: 0;" oninput="updateTextBoxOther(this.value);"/>
+                </div>
+             </div>
+             <div class="col-md-3 smart-text__display">
+                <asp:TextBox ID="TextBox1" type="text" class="smart-text" runat="server" Text="50"></asp:TextBox>
+             </div>
+           </div>
 
-    </div>
+            <!-- Goal 2nd row, used for goal deadline, the display of how much time is left to achieve the goal -->
+            <div class="row slider-margin">
+               <div class="col-md-3 smart-text__display">
+                  <asp:TextBox ID="TextBox3" type="text" class="smart-text smart-goal-text goal-info-text" runat="server" ReadOnly="true" Text="Goal deadline:"></asp:TextBox>
+               </div>
+                <div class="col-md-3 smart-text__display">
+                  <asp:TextBox ID="TextBox4" type="text" class="smart-text smart-goal-text" runat="server" ReadOnly="true" Text="2021-01-01"></asp:TextBox>
+               </div>
+               <div class="col-md-3 smart-text__display">
+                   <asp:TextBox ID="TextBox5" type="text" class="smart-text smart-goal-text goal-info-text" runat="server" ReadOnly="true" Text="Goal will be reached in:"></asp:TextBox>
+                </div>
+               <div class="col-md-3 smart-text__display">
+                  <asp:TextBox ID="TextBox6" type="text" class="smart-text smart-goal-text" runat="server" ReadOnly="true" Text="3 months"></asp:TextBox>
+               </div>
+            </div>
+
+            <script>
+                function updateTextBoxOther(val) {
+                    document.getElementById("<%=TextBoxOther.ClientID%>").value = val;
+                }
+            </script>
+          </div>
+            
+      </div>
+        
+</div>
+<script src="https://kit.fontawesome.com/496b21e0f9.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </asp:Content>
