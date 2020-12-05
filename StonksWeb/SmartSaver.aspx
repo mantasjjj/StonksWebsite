@@ -275,11 +275,11 @@
              </div>
              <div class="col-md-6">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Range1" style="margin-left: 0;" oninput="updateTextBoxOther(this.value);"/>
+                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="Range1" style="margin-left: 0;" oninput="updateTextBoxGoal(this.value);"/>
                 </div>
              </div>
              <div class="col-md-3 smart-text__display">
-                <asp:TextBox ID="TextBox1" type="text" class="smart-text" runat="server" Text="50"></asp:TextBox>
+                <asp:TextBox ID="TextBoxGoal" type="text" class="smart-text" runat="server" Text="50"></asp:TextBox>
              </div>
            </div>
 
@@ -300,8 +300,8 @@
             </div>
 
             <script>
-                function updateTextBoxOther(val) {
-                    document.getElementById("<%=TextBoxOther.ClientID%>").value = val;
+                function updateGoal(val) {
+                    document.getElementById("<%=TextBoxGoal.ClientID%>").value = val;
                 }
             </script>
           </div>
