@@ -738,6 +738,11 @@ section {
     font-size: 16px;
     font-weight: 100;
 }
+
+.smart-expenses-text{
+    margin: 1% !important;
+}
+
 .slidecontainer {
     margin: 2% 5% 5% 0;
 }
@@ -791,6 +796,12 @@ section {
     background-image: url('Images/smart-banner.jpg');
 }
 
+.icons {
+    font-size: 2rem;
+    display: flex !important;
+    justify-content: flex-end;
+    padding-top: 10%;
+}
 
 /*--------------------------------------------------------------
 # Progress
@@ -909,4 +920,26 @@ section {
 
 .modal-title{
     font-size: 2rem;
+}
+
+/*--------------------------------------------------------------
+# Goals
+--------------------------------------------------------------*/
+
+.goals{
+    margin-top: 1%;
+}
+
+.smart-goal-text {
+    border: none;
+    border-radius: 6px;
+    font-size: 1.5rem;
+}
+
+.goal-info-text{
+    font-weight: 600;
+}
+
+.goal{
+    margin-bottom: 3%;
 }
