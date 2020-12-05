@@ -3,8 +3,6 @@ using System.Threading.Tasks;
 
 namespace StonksWeb
 {
-    public delegate void Notify();  // delegate
-
     [Serializable]
     class FinancialGoal : ICloneable
     {
@@ -24,13 +22,13 @@ namespace StonksWeb
             Name = name;
             AllocatedFunds = 0;
             TimeToDeadline = -1;
+            DeadlineReached += SmartSaver.OnDeadlineReached;
         }
 
         public bool SetFundsByDeadline(DateTime dealineIn)
         {
             TimeToDeadline = (DateTime.Now - dealineIn).TotalDays / (UseYears ? 365 : 30);
             AllocatedFunds = Value / TimeToDeadline;
-            DeadlineReached += SmartSaver.OnDeadlineReached;
             OnDeadlineReached(TimeSpan.FromDays(TimeToDeadline * (UseYears ? 365 : 30)));
             return true;
         }
