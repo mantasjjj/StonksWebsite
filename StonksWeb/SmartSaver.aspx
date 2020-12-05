@@ -46,7 +46,7 @@
         <div class="row slider-margin">
             <div class="col-md-6">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="HousingSlider" style="margin-left: 0;" oninput="updateTextBoxHousing(this.value);"/>
+                    <input type="range" min="0" max="100" value="50" runat="server" class="slider" id="HousingSlider" style="margin-left: 0;" oninput="updateTextBoxHousing(this.value);"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
@@ -66,7 +66,7 @@
         <div class="row slider-margin">
             <div class="col-md-6">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="GroceriesSlider" style="margin-left: 0;" oninput="updateTextBoxGroceries(this.value);"/>
+                    <input type="range" min="0" max="100" value="50" runat="server" class="slider" id="GroceriesSlider" style="margin-left: 0;" oninput="updateTextBoxGroceries(this.value);"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
@@ -86,7 +86,7 @@
         <div class="row slider-margin">
             <div class="col-md-6">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="TransportationSlider" style="margin-left: 0;" oninput="updateTextBoxTransportation(this.value);"/>
+                    <input type="range" min="0" max="100" value="50" runat="server" class="slider" id="TransportationSlider" style="margin-left: 0;" oninput="updateTextBoxTransportation(this.value);"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
@@ -106,7 +106,7 @@
         <div class="row slider-margin">
             <div class="col-md-6">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="EntertainmentSlider" style="margin-left: 0;" oninput="updateTextBoxEntertainment(this.value);"/>
+                    <input type="range" min="0" max="100" value="50" runat="server" class="slider" id="EntertainmentSlider" style="margin-left: 0;" oninput="updateTextBoxEntertainment(this.value);"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
@@ -126,7 +126,7 @@
         <div class="row slider-margin">
             <div class="col-md-6">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="ShoppingSlider" style="margin-left: 0;" oninput="updateTextBoxShopping(this.value);"/>
+                    <input type="range" min="0" max="100" value="50" runat="server" class="slider" id="ShoppingSlider" style="margin-left: 0;" oninput="updateTextBoxShopping(this.value);"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
@@ -146,7 +146,7 @@
         <div class="row slider-margin">
             <div class="col-md-6">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="HealthSlider" style="margin-left: 0;" oninput="updateTextBoxHealth(this.value);"/>
+                    <input type="range" min="0" max="100" value="50" runat="server" class="slider" id="HealthSlider" style="margin-left: 0;" oninput="updateTextBoxHealth(this.value);"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
@@ -166,7 +166,7 @@
         <div class="row slider-margin">
             <div class="col-md-6">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="UtilitiesSlider" style="margin-left: 0;" oninput="updateTextBoxUtilities(this.value);"/>
+                    <input type="range" min="0" max="100" value="50" runat="server" class="slider" id="UtilitiesSlider" style="margin-left: 0;" oninput="updateTextBoxUtilities(this.value);"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
@@ -186,7 +186,7 @@
         <div class="row slider-margin">
             <div class="col-md-6">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" runat="server" class="slider" id="OtherSlider" style="margin-left: 0;" oninput="updateTextBoxOther(this.value);"/>
+                    <input type="range" min="0" max="100" value="50" runat="server" class="slider" id="OtherSlider" style="margin-left: 0;" oninput="updateTextBoxOther(this.value);"/>
                 </div>
             </div>
             <div class="col-md-3 smart-text__display">
@@ -203,7 +203,7 @@
             }
         </script>
 
-        <asp:Button ID="ButtonSave" runat="server" type="submit" class="btn btn-success btn-login" Text="Save Plan"/>
+        <asp:Button ID="ButtonSave" runat="server" type="submit" class="btn btn-success btn-login" Text="Save Plan" OnClick="SavePlan"/>
       <!--  <asp:Button ID="ButtonLogin" runat="server" type="submit" class="btn btn-primary btn-login" Text="Add A Goal" data-toggle="modal" data-target="#exampleModal"/> -->
 
 

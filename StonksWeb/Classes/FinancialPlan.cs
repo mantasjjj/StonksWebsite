@@ -72,7 +72,7 @@ namespace StonksWeb
             {
                 var expense = Expenses.Where(x => x.Type == type).FirstOrDefault();
                 expense.PlannedValue = value;
-                Expenses.Add(expense);
+                AddExpense(expense);
             }
         }
 

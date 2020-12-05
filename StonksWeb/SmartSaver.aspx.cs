@@ -11,13 +11,15 @@ namespace StonksWeb
     public struct ExpenseMap
     {
         public readonly ExpenseType Type;
-        public readonly TextBox Text;
+        public readonly TextBox TextActual;
+        public readonly TextBox TextPlanned;
         public readonly HtmlInputGenericControl Slider;
 
-        public ExpenseMap(ExpenseType type, TextBox text, HtmlInputGenericControl slider)
+        public ExpenseMap(ExpenseType type, TextBox textActual, TextBox textPlanned, HtmlInputGenericControl slider)
         {
             Type = type;
-            Text = text;
+            TextActual = textActual;
+            TextPlanned = textPlanned;
             Slider = slider;
         }
     }
@@ -44,14 +46,14 @@ namespace StonksWeb
         {
             expenseMap = new List<ExpenseMap>()
             {
-                new ExpenseMap(ExpenseType.Housing, TextBoxHousingActual, HousingSlider),
-                new ExpenseMap(ExpenseType.Groceries, TextBoxGroceriesActual, GroceriesSlider),
-                new ExpenseMap(ExpenseType.Transportation, TextBoxTransportationActual, TransportationSlider),
-                new ExpenseMap(ExpenseType.Entertainment, TextBoxEntertainmentActual, EntertainmentSlider),
-                new ExpenseMap(ExpenseType.Health, TextBoxHealthActual, HealthSlider),
-                new ExpenseMap(ExpenseType.Shopping, TextBoxShoppingActual, ShoppingSlider),
-                new ExpenseMap(ExpenseType.Utilities, TextBoxUtilitiesActual, UtilitiesSlider),
-                new ExpenseMap(ExpenseType.Other, TextBoxOtherActual, OtherSlider)
+                new ExpenseMap(ExpenseType.Housing, TextBoxHousingActual, TextBoxHousing, HousingSlider),
+                new ExpenseMap(ExpenseType.Groceries, TextBoxGroceriesActual, TextBoxGroceries, GroceriesSlider),
+                new ExpenseMap(ExpenseType.Transportation, TextBoxTransportationActual, TextBoxTransportation, TransportationSlider),
+                new ExpenseMap(ExpenseType.Entertainment, TextBoxEntertainmentActual, TextBoxEntertainment, EntertainmentSlider),
+                new ExpenseMap(ExpenseType.Health, TextBoxHealthActual, TextBoxHealth, HealthSlider),
+                new ExpenseMap(ExpenseType.Shopping, TextBoxShoppingActual, TextBoxShopping, ShoppingSlider),
+                new ExpenseMap(ExpenseType.Utilities, TextBoxUtilitiesActual, TextBoxUtilities, UtilitiesSlider),
+                new ExpenseMap(ExpenseType.Other, TextBoxOtherActual, TextBoxOther, OtherSlider)
             };
 
             Double savings = FinancialPlanController.ActivePlan.Income - FinancialPlanController.ActivePlan.GetSpendings();
@@ -67,7 +69,18 @@ namespace StonksWeb
                 var expense = FinancialPlanController.ActivePlan.GetExpense(map.Type);
                 if (expense != null)
                 {
-                    map.Text.Text = expense.Value.ToString();
+                    map.TextActual.Text = expense.Value.ToString();
+                    map.TextPlanned.Text = expense.PlannedValue.ToString();
+                }
+            }
+            double maxPlanned = FinancialPlanController.ActivePlan.GetMaxExpense() * 1.2;
+            foreach (ExpenseMap map in expenseMap)
+            {
+                var expense = FinancialPlanController.ActivePlan.GetExpense(map.Type);
+                if (expense != null)
+                {
+                    map.Slider.Attributes.Add("max", maxPlanned.ToString());
+                    map.Slider.Value = expense.PlannedValue.ToString();
                 }
             }
         }
@@ -76,18 +89,22 @@ namespace StonksWeb
         {
         }
 
-        [System.Web.Services.WebMethod]
-        public static void UpdateValue()
-        {
-            HtmlInputGenericControl slider = new HtmlInputGenericControl();
-            FinancialPlanController.ActivePlan.ModifyExpensePlannedValue(expenseMap.Where(x => x.Slider == slider).FirstOrDefault().Type, Double.Parse(slider.Value));
-            expenseMap.Where(x => x.Slider == slider).FirstOrDefault().Text.Text = slider.Value;
-        }
-
         public static void OnDeadlineReached(object source, EventArgs args)
         {
             DeadlineReachedVisible = true;
             ReachedGoalNames.Add(((FinancialGoal)source).Name);
+        }
+
+        protected void SavePlan(object sender, EventArgs e)
+        {
+            foreach (ExpenseMap map in expenseMap)
+            {
+                if (Double.TryParse(map.TextPlanned.Text, out double value))
+                {
+                    FinancialPlanController.ActivePlan.ModifyExpensePlannedValue(map.Type, value);
+                }
+            }
+            BinarySerialization.WriteToBinaryFile(Global.saveFilePath, FinancialPlanController.FinancialPlans);
         }
     }
 }
