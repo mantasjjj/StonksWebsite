@@ -64,6 +64,11 @@ namespace StonksWeb
             return true;
         }
 
+        public string GetDeadlineFormatted()
+        {
+            return (DateTime.Now + TimeSpan.FromDays(TimeToDeadline * (UseYears ? 365 : 30))).ToShortDateString();
+        }
+
         public object Clone()
         {
             var clone = new FinancialGoal(Value, Name);

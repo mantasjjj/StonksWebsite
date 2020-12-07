@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
+using System.Collections;
 
 namespace StonksWeb
 {
@@ -24,11 +25,53 @@ namespace StonksWeb
         }
     }
 
+    public class FinancialGoalInfo
+    {
+        public double Value { get; set; }
+        public string Name { get; set; }
+        public string Deadline { get; set; }
+        public string TimeToDeadline { get; set; }
+
+        public FinancialGoalInfo(string name, double value, string deadline, string timeToDeadline )
+        {
+            Name = name;
+            Value = value;
+            Deadline = deadline;
+            TimeToDeadline = timeToDeadline;
+        }
+    }
+
+    public static class MessageBox
+    {
+        public static void Show(this Page Page, String Message)
+        {
+            Page.ClientScript.RegisterStartupScript(
+               Page.GetType(),
+               "MessageBox",
+               "<script language='javascript'>alert('" + Message + "');</script>"
+            );
+        }
+    }
+
     public partial class SmartSaver : Page
     {
         private static List<ExpenseMap> expenseMap;
         private static bool DeadlineReachedVisible = false;
         private static List<String> ReachedGoalNames = new List<String>();
+
+        public IEnumerable rptCustomer_GetData()
+        {
+            var goals = new List<FinancialGoalInfo>();
+            var timeUnit = FinancialGoal.UseYears ? " years" : " months";
+            foreach (FinancialGoal goal in FinancialPlanController.ActivePlan.FinancialGoals)
+            {
+                goals.Add(new FinancialGoalInfo(goal.Name, goal.Value, goal.GetDeadlineFormatted(), (goal.TimeToDeadline < 0 
+                    ? "∞" 
+                    : goal.TimeToDeadline.ToString())
+                    + timeUnit));
+            }
+            return goals;
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -105,6 +148,20 @@ namespace StonksWeb
                 }
             }
             BinarySerialization.WriteToBinaryFile(Global.saveFilePath, FinancialPlanController.FinancialPlans);
+        }
+
+        protected void AddGoal(object sender, EventArgs e)
+        {
+            if (Double.TryParse(TextBoxGoalPrice.Text, out double value) && TextBoxGoalName.Text != "")
+            {
+                FinancialPlanController.ActivePlan.AddFinancialGoal(new FinancialGoal(value, TextBoxGoalName.Text));
+                BinarySerialization.WriteToBinaryFile(Global.saveFilePath, FinancialPlanController.FinancialPlans);
+                Page.Response.Redirect(Page.Request.Url.ToString(), true);
+            }
+            else
+            {
+                MessageBox.Show(this, "Provided goal infomation invalid.");
+            }
         }
     }
 }
