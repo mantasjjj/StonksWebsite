@@ -27,15 +27,17 @@ namespace StonksWeb
 
     public class FinancialGoalInfo
     {
-        public double Value { get; set; }
         public string Name { get; set; }
+        public double Value { get; set; }
+        public double Funds { get; set; }
         public string Deadline { get; set; }
         public string TimeToDeadline { get; set; }
 
-        public FinancialGoalInfo(string name, double value, string deadline, string timeToDeadline )
+        public FinancialGoalInfo(string name, double value, double funds, string deadline, string timeToDeadline )
         {
             Name = name;
             Value = value;
+            Funds = funds;
             Deadline = deadline;
             TimeToDeadline = timeToDeadline;
         }
@@ -65,9 +67,9 @@ namespace StonksWeb
             var timeUnit = FinancialGoal.UseYears ? " years" : " months";
             foreach (FinancialGoal goal in FinancialPlanController.ActivePlan.FinancialGoals)
             {
-                goals.Add(new FinancialGoalInfo(goal.Name, goal.Value, goal.GetDeadlineFormatted(), (goal.TimeToDeadline < 0 
+                goals.Add(new FinancialGoalInfo(goal.Name, goal.Value, goal.AllocatedFunds, goal.GetDeadlineFormatted(), (goal.TimeToDeadline < 0 
                     ? "∞" 
-                    : goal.TimeToDeadline.ToString())
+                    : Math.Round(goal.TimeToDeadline, 1).ToString())
                     + timeUnit));
             }
             return goals;
@@ -128,8 +130,17 @@ namespace StonksWeb
             }
         }
 
-        protected void SetRangeSlider()
+        protected void SetGoalValue(object source, EventArgs args)
         {
+            for (int i = 0; i < RepeaterGoals.Items.Count; i++)
+            {
+                HtmlInputGenericControl currentSlider = (HtmlInputGenericControl)RepeaterGoals.Items[i].FindControl("Slider");
+                TextBox currentTextBox = (TextBox)RepeaterGoals.Items[i].FindControl("TextBoxValue");
+
+                FinancialPlanController.ActivePlan.FinancialGoals.ElementAt(i).SetDeadlineByFunds(Double.Parse(currentSlider.Value));
+                BinarySerialization.WriteToBinaryFile(Global.saveFilePath, FinancialPlanController.FinancialPlans);
+                Page.Response.Redirect(Page.Request.Url.ToString(), true);
+            }
         }
 
         public static void OnDeadlineReached(object source, EventArgs args)

@@ -301,12 +301,21 @@ namespace StonksWeb {
         protected global::System.Web.UI.WebControls.Button ButtonAddGoal;
         
         /// <summary>
-        /// rptCustomer control.
+        /// ButtonSetGoal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptCustomer;
+        protected global::System.Web.UI.WebControls.Button ButtonSetGoal;
+        
+        /// <summary>
+        /// RepeaterGoals control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepeaterGoals;
     }
 }

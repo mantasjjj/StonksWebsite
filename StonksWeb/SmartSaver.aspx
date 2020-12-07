@@ -266,45 +266,40 @@
 
         <div class="goals">
             <h3 class="smart-h3">Your Goals:</h3>
-            <asp:Repeater ID="rptCustomer" runat="server" SelectMethod="rptCustomer_GetData" ItemType="StonksWeb.FinancialGoalInfo">
+            <asp:Button type="button" ID="ButtonSetGoal" class="btn btn-primary" runat="server" Text="Update goal" OnClick="SetGoalValue"/>
+            <asp:Repeater ID="RepeaterGoals" runat="server" SelectMethod="rptCustomer_GetData" ItemType="StonksWeb.FinancialGoalInfo">
                 <ItemTemplate>
                     <div class="goal">
                         <!-- Goal 1st row, used for goal name, price and slider -->
                         <div class="row slider-margin">
                             <div class="col-md-3 smart-text__display">
-                                <asp:TextBox ID="TextBox2" type="text" class="smart-text smart-goal-text" runat="server" ReadOnly="true" Text="<%# Item.Name %>"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxName" type="text" class="smart-text smart-goal-text" runat="server" ReadOnly="true" Text="<%# Item.Name %>"></asp:TextBox>
                             </div>
                             <div class="col-md-6">
                                 <div class="slidecontainer">
-                                    <input type="range" min="1" max="<%# Item.Value %>" value="0" runat="server" class="slider" id="Range1" style="margin-left: 0;" />
+                                    <input type="range" min="1" max="<%# Item.Value %>" value="<%# Item.Funds %>" runat="server" class="slider" id="Slider" style="margin-left: 0;"/>
                                 </div>
                             </div>
                             <div class="col-md-3 smart-text__display">
-                                <asp:TextBox ID="TextBoxGoal" type="text" class="smart-text" runat="server" Text="50"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxValue" type="text" class="smart-text" runat="server" Text="<%# Item.Funds %>"></asp:TextBox>
                             </div>
                         </div>
 
                         <!-- Goal 2nd row, used for goal deadline, the display of how much time is left to achieve the goal -->
                         <div class="row slider-margin">
                             <div class="col-md-3 smart-text__display">
-                                <asp:TextBox ID="TextBox3" type="text" class="smart-text smart-goal-text goal-info-text" runat="server" ReadOnly="true" Text="Goal deadline:"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxDeadline" type="text" class="smart-text smart-goal-text goal-info-text" runat="server" ReadOnly="true" Text="Goal deadline:"></asp:TextBox>
                             </div>
                             <div class="col-md-3 smart-text__display">
-                                <asp:TextBox ID="TextBox4" type="text" class="smart-text smart-goal-text" runat="server" ReadOnly="true" Text="<%# Item.Deadline %>"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxDeadlineVal" type="text" class="smart-text smart-goal-text" runat="server" ReadOnly="true" Text="<%# Item.Deadline %>"></asp:TextBox>
                             </div>
                             <div class="col-md-3 smart-text__display">
-                                <asp:TextBox ID="TextBox5" type="text" class="smart-text smart-goal-text goal-info-text" runat="server" ReadOnly="true" Text="Goal will be reached in:"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxReachedIn" type="text" class="smart-text smart-goal-text goal-info-text" runat="server" ReadOnly="true" Text="Goal will be reached in:"></asp:TextBox>
                             </div>
                             <div class="col-md-3 smart-text__display">
-                                <asp:TextBox ID="TextBox6" type="text" class="smart-text smart-goal-text" runat="server" ReadOnly="true" Text="<%# Item.TimeToDeadline %>"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxReachedInVal" type="text" class="smart-text smart-goal-text" runat="server" ReadOnly="true" Text="<%# Item.TimeToDeadline %>"></asp:TextBox>
                             </div>
                         </div>
-
-                        <%--                        <script>
-                            function updateTextBoxGoal(val) {
-                                document.getElementById("<%=TextBoxGoal.ClientID%>").value = val;
-                            }
-                        </script>--%>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
