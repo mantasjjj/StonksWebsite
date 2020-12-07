@@ -258,7 +258,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-bottom: 0;">Close</button>
-                <asp:Button type="button" class="btn btn-primary" runat="server" Text="Add a goal" />
+                <asp:Button type="button" ID="ButtonAddGoal" class="btn btn-primary" runat="server" Text="Add a goal" OnClick="AddGoal"/>
               </div>
             </div>
           </div>

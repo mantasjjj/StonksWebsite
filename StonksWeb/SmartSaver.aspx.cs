@@ -41,6 +41,18 @@ namespace StonksWeb
         }
     }
 
+    public static class MessageBox
+    {
+        public static void Show(this Page Page, String Message)
+        {
+            Page.ClientScript.RegisterStartupScript(
+               Page.GetType(),
+               "MessageBox",
+               "<script language='javascript'>alert('" + Message + "');</script>"
+            );
+        }
+    }
+
     public partial class SmartSaver : Page
     {
         private static List<ExpenseMap> expenseMap;
@@ -53,7 +65,10 @@ namespace StonksWeb
             var timeUnit = FinancialGoal.UseYears ? " years" : " months";
             foreach (FinancialGoal goal in FinancialPlanController.ActivePlan.FinancialGoals)
             {
-                goals.Add(new FinancialGoalInfo(goal.Name, goal.Value, goal.GetDeadlineFormatted(), goal.TimeToDeadline.ToString() + timeUnit));
+                goals.Add(new FinancialGoalInfo(goal.Name, goal.Value, goal.GetDeadlineFormatted(), (goal.TimeToDeadline < 0 
+                    ? "∞" 
+                    : goal.TimeToDeadline.ToString())
+                    + timeUnit));
             }
             return goals;
         }
@@ -133,6 +148,20 @@ namespace StonksWeb
                 }
             }
             BinarySerialization.WriteToBinaryFile(Global.saveFilePath, FinancialPlanController.FinancialPlans);
+        }
+
+        protected void AddGoal(object sender, EventArgs e)
+        {
+            if (Double.TryParse(TextBoxGoalPrice.Text, out double value) && TextBoxGoalName.Text != "")
+            {
+                FinancialPlanController.ActivePlan.AddFinancialGoal(new FinancialGoal(value, TextBoxGoalName.Text));
+                BinarySerialization.WriteToBinaryFile(Global.saveFilePath, FinancialPlanController.FinancialPlans);
+                Page.Response.Redirect(Page.Request.Url.ToString(), true);
+            }
+            else
+            {
+                MessageBox.Show(this, "Provided goal infomation invalid.");
+            }
         }
     }
 }
