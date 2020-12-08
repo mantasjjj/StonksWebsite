@@ -300,7 +300,7 @@
                                 <asp:TextBox ID="TextBoxReachedInVal" type="text" class="smart-text smart-goal-text" runat="server" ReadOnly="true" Text="<%# Item.TimeToDeadline %>"></asp:TextBox>
                             </div>
                         </div>
-                        <asp:Button type="button" ID="ButtonDeleteGoal" class="btn btn-primary" runat="server" Text="Delete Goal" OnClick="DeleteGoal"/>
+                        <asp:Button type="button" ID="ButtonDeleteGoal" class="btn btn-danger" runat="server" Text="Delete Goal" OnClick="DeleteGoal"/>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
