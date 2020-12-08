@@ -143,10 +143,28 @@ namespace StonksWeb
             }
         }
 
-        public static void OnDeadlineReached(object source, EventArgs args)
+        protected void DeleteGoal(object sender, EventArgs args)
+        {
+            if (FinancialPlanController.ActivePlan.FinancialGoals.Count < 1 || RepeaterGoals.Items.Count < 1)
+                return;
+
+            Button clickedButton = (Button)sender;
+            int index = 0;
+            for (; index < RepeaterGoals.Items.Count; index++)
+            {
+                Button currentButton = (Button)RepeaterGoals.Items[index].FindControl("ButtonDeleteGoal");
+                if (clickedButton == currentButton)
+                    break;
+            }
+            FinancialPlanController.ActivePlan.FinancialGoals.RemoveAt(index);
+            BinarySerialization.WriteToBinaryFile(Global.saveFilePath, FinancialPlanController.FinancialPlans);
+            Page.Response.Redirect(Page.Request.Url.ToString(), true);
+        }
+
+        public static void OnDeadlineReached(object sender, EventArgs args)
         {
             DeadlineReachedVisible = true;
-            ReachedGoalNames.Add(((FinancialGoal)source).Name);
+            ReachedGoalNames.Add(((FinancialGoal)sender).Name);
         }
 
         protected void SavePlan(object sender, EventArgs e)

@@ -266,7 +266,7 @@
 
         <div class="goals">
             <h3 class="smart-h3">Your Goals:</h3>
-            <asp:Button type="button" ID="ButtonSetGoal" class="btn btn-primary" runat="server" Text="Update goal" OnClick="SetGoalValue"/>
+            <asp:Button type="button" ID="ButtonSetGoal" class="btn btn-primary" runat="server" Text="Update Goals" OnClick="SetGoalValue"/>
             <asp:Repeater ID="RepeaterGoals" runat="server" SelectMethod="rptCustomer_GetData" ItemType="StonksWeb.FinancialGoalInfo">
                 <ItemTemplate>
                     <div class="goal">
@@ -300,6 +300,7 @@
                                 <asp:TextBox ID="TextBoxReachedInVal" type="text" class="smart-text smart-goal-text" runat="server" ReadOnly="true" Text="<%# Item.TimeToDeadline %>"></asp:TextBox>
                             </div>
                         </div>
+                        <asp:Button type="button" ID="ButtonDeleteGoal" class="btn btn-primary" runat="server" Text="Delete Goal" OnClick="DeleteGoal"/>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
