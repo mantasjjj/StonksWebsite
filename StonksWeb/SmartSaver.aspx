@@ -249,11 +249,11 @@
              <div class="modal-body container-progress">
                 <div class="form-group">
                     <label>Goal Name</label>
-                    <asp:TextBox ID="TextBoxGoalName" type="text" class="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxGoalName" type="text" class="form-control" runat="server" autocomplete="off"></asp:TextBox>
                   </div>
                  <div class="form-group">
                     <label>Goal Price</label>
-                    <asp:TextBox ID="TextBoxGoalPrice" type="text" class="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxGoalPrice" type="text" class="form-control" runat="server" autocomplete="off"></asp:TextBox>
                   </div>
               </div>
               <div class="modal-footer">
