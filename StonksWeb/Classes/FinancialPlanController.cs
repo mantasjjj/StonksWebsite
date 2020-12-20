@@ -10,6 +10,7 @@ namespace StonksWeb
     {
         public static List<FinancialPlan> FinancialPlans { get; set; } = new List<FinancialPlan>();
         public static FinancialPlan ActivePlan { get; set; }
+        public static User ActiveUser { get; set; }
 
         public static void UpdateActive()
         {
