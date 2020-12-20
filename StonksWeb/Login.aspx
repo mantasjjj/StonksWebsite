@@ -12,7 +12,7 @@
             <label>Password</label>
             <asp:TextBox ID="TextBoxPassword" type="password" class="form-control"  runat="server"></asp:TextBox>
         </div>
-        <asp:Button ID="ButtonLogin" runat="server" type="submit" class="btn btn-primary btn-login" Text="Log in"/>
+        <asp:Button ID="ButtonLogin" runat="server" type="submit" class="btn btn-primary btn-login" Text="Log in" OnClick="LogIn_Click"/>
 
         <button type="button" class="btn btn-info"><a href="SignUp.aspx" class="login-sign">Sign Up</a></button>
         </form>
