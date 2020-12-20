@@ -138,7 +138,7 @@ namespace StonksWeb
                 TextBox currentTextBox = (TextBox)RepeaterGoals.Items[i].FindControl("TextBoxValue");
 
                 FinancialPlanController.ActivePlan.FinancialGoals.ElementAt(i).SetDeadlineByFunds(Double.Parse(currentSlider.Value));
-                BinarySerialization.WriteToBinaryFile(Global.saveFilePath, FinancialPlanController.FinancialPlans);
+                DBConnector.SaveFinancialPlans(FinancialPlanController.FinancialPlans, 1); // default user id
                 Page.Response.Redirect(Page.Request.Url.ToString(), true);
             }
         }
@@ -157,7 +157,6 @@ namespace StonksWeb
                     break;
             }
             FinancialPlanController.ActivePlan.FinancialGoals.RemoveAt(index);
-            BinarySerialization.WriteToBinaryFile(Global.saveFilePath, FinancialPlanController.FinancialPlans);
             Page.Response.Redirect(Page.Request.Url.ToString(), true);
         }
 
@@ -176,7 +175,7 @@ namespace StonksWeb
                     FinancialPlanController.ActivePlan.ModifyExpensePlannedValue(map.Type, value);
                 }
             }
-            BinarySerialization.WriteToBinaryFile(Global.saveFilePath, FinancialPlanController.FinancialPlans);
+            DBConnector.SaveFinancialPlans(FinancialPlanController.FinancialPlans, 1); // default user id
         }
 
         protected void AddGoal(object sender, EventArgs e)
@@ -184,7 +183,6 @@ namespace StonksWeb
             if (Double.TryParse(TextBoxGoalPrice.Text, out double value) && TextBoxGoalName.Text != "")
             {
                 FinancialPlanController.ActivePlan.AddFinancialGoal(new FinancialGoal(value, TextBoxGoalName.Text));
-                BinarySerialization.WriteToBinaryFile(Global.saveFilePath, FinancialPlanController.FinancialPlans);
                 Page.Response.Redirect(Page.Request.Url.ToString(), true);
             }
             else
