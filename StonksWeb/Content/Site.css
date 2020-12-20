@@ -824,10 +824,24 @@ section {
     background-image: url(Images/progression.jpg);
 }
 
+hr {
+    margin-top: 0rem;
+    margin-bottom: 3rem;
+    border: 0;
+    border-top: 1.5px solid rgba(0,0,0,.1);
+}
+
+.advice-h3{
+    font-size: 1.7rem !important;
+}
+
+.prog-rec {
+    display: flex;
+    justify-content: center;
+}
 /*--------------------------------------------------------------
 # About us
 --------------------------------------------------------------*/
-
 .container-about {
     margin: 0 20%;
 }
@@ -836,6 +850,29 @@ section {
     background-position-y: 14%;
     background-image: url(Images/team.jpg);
     color: #FFF;
+}
+
+.advice-text {
+    border: 0;
+    font-size: 2.2rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.advice{
+    margin-bottom: 3%;
+}
+
+.noDisp {
+    display: none;
+}
+
+.green {
+   display: visible !important;
+}
+
+.red {
+    display: visible !important;
 }
 
 /*--------------------------------------------------------------

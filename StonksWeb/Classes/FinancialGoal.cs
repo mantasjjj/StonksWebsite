@@ -66,7 +66,14 @@ namespace StonksWeb
 
         public string GetDeadlineFormatted()
         {
-            return (DateTime.Now + TimeSpan.FromDays(TimeToDeadline * (UseYears ? 365 : 30))).ToShortDateString();
+            try
+            {
+                return (DateTime.Now + TimeSpan.FromDays(TimeToDeadline * (UseYears ? 365 : 30))).ToShortDateString();
+            }
+            catch
+            {
+                return "null";
+            }
         }
 
         public object Clone()

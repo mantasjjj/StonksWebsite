@@ -5,14 +5,14 @@ namespace StonksWeb
     [Flags]
     public enum ExpenseType
     {
-        Housing = 1,
-        Groceries = 2,
-        Transportation =  4,
-        Entertainment = 8,
-        Health = 16,
-        Shopping = 32,
-        Utilities = 64,
-        Other = 128
+        Housing,
+        Groceries,
+        Transportation,
+        Entertainment,
+        Health,
+        Shopping,
+        Utilities,
+        Other
     }
 
     [Serializable]
