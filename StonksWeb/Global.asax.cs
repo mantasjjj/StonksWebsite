@@ -17,7 +17,7 @@ namespace StonksWeb
         {
             try
             {
-                FinancialPlanController.FinancialPlans = BinarySerialization.ReadFromBinaryFile<List<FinancialPlan>>(saveFilePath);
+                FinancialPlanController.FinancialPlans = DBConnector.GetFinancialPlanList(1); // default user id
                 FinancialPlanController.UpdateActive();
             }
             catch
