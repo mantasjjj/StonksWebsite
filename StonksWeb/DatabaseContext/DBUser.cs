@@ -24,6 +24,7 @@ namespace StonksWeb
         public string LastName { get; set; }
 
         [Required]
+        [StringLength(450)]
         public string Email { get; set; }
 
         [Required]
