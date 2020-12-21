@@ -148,8 +148,11 @@
          </asp:Chart>
 
         <hr style="margin-top: 0rem;"> </hr>
-        <div id="References" runat="server" visible="true">
+        <div id="References" runat="server" visible="true" style="margin-bottom: 3%;">
             <h1 class="smart-h3">References</h1>
+            <a href="https://www.investopedia.com/articles/personal-finance/022216/i-make-50k-year-how-much-should-i-invest.asp#:~:text=Lock%20in%20a%20Percentage%20of,amount%20for%20your%20income%20level.">How much should you invest: Investopedia</a> </br>
+            <a href="https://www.thebalance.com/the-50-30-20-rule-of-thumb-453922#:~:text=The%20rule%20divides%20your%20spending,20%25%20toward%20debt%20and%20savings.">How much should you spend and save: The Balance</a> </br>
+            <a href="https://www.bankrate.com/calculators/savings/compound-savings-calculator-tool.aspx">Formula for investing with monthly contributions: Bankrate</a> </br>
         </div>
     </div>
     <script src="https://kit.fontawesome.com/496b21e0f9.js" crossorigin="anonymous"></script>
