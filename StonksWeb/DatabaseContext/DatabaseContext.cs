@@ -17,6 +17,8 @@ namespace StonksWeb
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Database.SetInitializer<DatabaseContext>(null);
+
             modelBuilder.Entity<DBUser>()
                 .HasMany(e => e.DBFinancialPlans)
                 .WithRequired(e => e.DBUser)

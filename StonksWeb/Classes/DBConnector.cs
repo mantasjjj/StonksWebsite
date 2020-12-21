@@ -40,6 +40,7 @@ namespace StonksWeb
                     foreach (var item in group)
                     {
                         finPlanList.Add(json.Deserialize<FinancialPlan>(item.FinancialPlan));
+                        finPlanList.Last().DateCreated = item.DateCreated;
                     }
                 }
             }
@@ -88,8 +89,17 @@ namespace StonksWeb
                 SaveFinancialPlans(financialPlanList, userId);
             }
         }
+        
+        internal static User GetUser(int userId)
+        {
+            using (var db = new DatabaseContext())
+            {
+                var dbUser = db.DBUsers.Where(x => x.Id == userId).FirstOrDefault();
+                return new User (dbUser.FirstName, dbUser.LastName, dbUser.Email, dbUser.Password);
+            }
+        }
 
-        internal static bool AddUser(User user)
+        internal static bool AddedUser(User user)
         {
             using (var db = new DatabaseContext())
             {

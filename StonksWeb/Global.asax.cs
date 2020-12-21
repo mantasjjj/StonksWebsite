@@ -11,13 +11,14 @@ namespace StonksWeb
 {
     public class Global : HttpApplication
     {
-        public static string saveFilePath = "D:\\financialPlan.bin";
+        public static int defaultUserId = 1;
 
         void Application_Start(object sender, EventArgs e)
         {
+            FinancialPlanController.ActiveUser = DBConnector.GetUser(defaultUserId);
             try
             {
-                FinancialPlanController.FinancialPlans = DBConnector.GetFinancialPlanList(1); // default user id
+                FinancialPlanController.FinancialPlans = DBConnector.GetFinancialPlanList(defaultUserId);
                 FinancialPlanController.UpdateActive();
             }
             catch
