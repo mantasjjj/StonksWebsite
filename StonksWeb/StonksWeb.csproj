@@ -120,6 +120,8 @@
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
     <Content Include="Content\Images\finances.png" />
+    <Content Include="DatabaseContext\dbo.DBFinancialPlan.sql" />
+    <Content Include="DatabaseContext\dbo.DBUser.sql" />
     <Content Include="Finances.aspx" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />

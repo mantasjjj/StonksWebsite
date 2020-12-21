@@ -22,6 +22,10 @@ namespace StonksWeb
                 .WithRequired(e => e.DBUser)
                 .HasForeignKey(e => e.UserId)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<DBUser>()
+                .HasIndex(e => e.Email)
+                .IsUnique();
         }
     }
 }

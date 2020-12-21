@@ -21,7 +21,7 @@ namespace StonksWeb
         {
             if (copyPrevious)
             {
-                FinancialPlans.Add((FinancialPlan)(FinancialPlans.Count > 1 ? FinancialPlans.ElementAt(FinancialPlans.Count - 2).Clone() : new FinancialPlan())); UpdateActive();
+                FinancialPlans.Add((FinancialPlan)(FinancialPlans.Count > 1 ? FinancialPlans.ElementAt(FinancialPlans.Count - 2).Clone() : new FinancialPlan()));
                 UpdateActive();
             }
             else

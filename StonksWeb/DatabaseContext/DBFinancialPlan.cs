@@ -13,6 +13,7 @@ namespace StonksWeb
 
         public int UserId { get; set; }
 
+        [Column(TypeName = "datetime2")]
         public DateTime DateCreated { get; set; }
 
         [Required]

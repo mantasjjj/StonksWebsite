@@ -13,5 +13,25 @@ namespace StonksWeb
         {
 
         }
+
+        protected void LogIn_Click(object sender, EventArgs e)
+        {
+            if (TextBoxEmail.Text != "" && TextBoxPassword.Text != "")
+            {
+                var user = new User(TextBoxEmail.Text, TextBoxPassword.Text);
+                if (DBConnector.LoggedInUser(user))
+                {
+                    MessageBox.Show(this, "You have logged in.");
+                }
+                else
+                {
+                    MessageBox.Show(this, "Log in failed. Incorrect email or password.");
+                }
+            }
+            else
+            {
+                MessageBox.Show(this, "Log in failed. Please fill in all fields.");
+            }
+        }
     }
 }

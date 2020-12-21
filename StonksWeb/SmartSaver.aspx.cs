@@ -138,7 +138,7 @@ namespace StonksWeb
                 TextBox currentTextBox = (TextBox)RepeaterGoals.Items[i].FindControl("TextBoxValue");
 
                 FinancialPlanController.ActivePlan.FinancialGoals.ElementAt(i).SetDeadlineByFunds(Double.Parse(currentSlider.Value));
-                DBConnector.SaveFinancialPlans(FinancialPlanController.FinancialPlans, 1); // default user id
+                DBConnector.SaveFinancialPlans(FinancialPlanController.FinancialPlans);
                 Page.Response.Redirect(Page.Request.Url.ToString(), true);
             }
         }
@@ -175,7 +175,7 @@ namespace StonksWeb
                     FinancialPlanController.ActivePlan.ModifyExpensePlannedValue(map.Type, value);
                 }
             }
-            DBConnector.SaveFinancialPlans(FinancialPlanController.FinancialPlans, 1); // default user id
+            DBConnector.SaveFinancialPlans(FinancialPlanController.FinancialPlans);
         }
 
         protected void AddGoal(object sender, EventArgs e)

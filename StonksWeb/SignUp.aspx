@@ -24,7 +24,7 @@
             <label for="InputPassword2">Confirm Password</label>
             <asp:TextBox ID="TextBoxPassword2" type="password" class="form-control"  runat="server"></asp:TextBox>
           </div>
-          <asp:Button ID="ButtonLogin" runat="server" type="submit" class="btn btn-primary btn-login" Text="Sign Up"/>
+          <asp:Button ID="ButtonLogin" runat="server" type="submit" class="btn btn-primary btn-login" Text="Sign Up" OnClick="SignUp_Click"/>
          <button type="button" class="btn btn-info"><a href="Login.aspx" class="login-sign">Log in</a>
         </form>
     </div>

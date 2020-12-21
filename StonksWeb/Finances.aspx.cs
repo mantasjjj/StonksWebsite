@@ -57,7 +57,7 @@ namespace StonksWeb
                     FinancialPlanController.ActivePlan.AddExpense(new Expense(boxType.Key, value, value));
                 }
             }
-            DBConnector.SaveFinancialPlans(FinancialPlanController.FinancialPlans, 1); // default user id
+            DBConnector.SaveFinancialPlans(FinancialPlanController.FinancialPlans);
         }
     }
 } 
