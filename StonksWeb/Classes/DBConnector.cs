@@ -69,7 +69,7 @@ namespace StonksWeb
                     modelObject.UserId = userId;
                     modelObject.Id = financialPlanList.IndexOf(financialPlan);
                     modelObject.DateCreated = financialPlan.DateCreated;
-                    var objToRemove = db.DBFinancialPlans.Where(x => x.Id == modelObject.Id);
+                    var objToRemove = db.DBFinancialPlans.Where(x => x.UserId == modelObject.UserId && x.DateCreated == modelObject.DateCreated);
                     if (objToRemove.Count() > 0)
                     {
                         db.DBFinancialPlans.Remove(objToRemove.FirstOrDefault());
@@ -89,7 +89,7 @@ namespace StonksWeb
             }
         }
 
-        internal static void AddUser(User user)
+        internal static bool AddUser(User user)
         {
             using (var db = new DatabaseContext())
             {
@@ -99,7 +99,15 @@ namespace StonksWeb
                 modelObject.Email = user.Email;
                 modelObject.Password = user.Password;
                 db.DBUsers.Add(modelObject);
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false; // most likely duplicate email - not allowed
+                }
             }
         }
 

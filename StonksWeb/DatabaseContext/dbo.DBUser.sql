@@ -1,8 +1,8 @@
-﻿CREATE TABLE [dbo].[DBUser]
-(
-	[Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-    [FirstName] NVARCHAR(MAX) NOT NULL,
-    [LastName] NVARCHAR(MAX) NOT NULL,
-    [Email] NVARCHAR(MAX) NOT NULL,
-    [Password] NVARCHAR(MAX) NOT NULL
-)
+﻿CREATE TABLE [dbo].[DBUser] (
+    [Id]        INT            IDENTITY (1, 1) NOT NULL,
+    [FirstName] NVARCHAR (MAX) NOT NULL,
+    [LastName]  NVARCHAR (MAX) NOT NULL,
+    [Email]     NVARCHAR (450) NOT NULL UNIQUE,
+    [Password]  NVARCHAR (MAX) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);

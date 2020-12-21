@@ -21,8 +21,14 @@ namespace StonksWeb
                 if (TextBoxPassword.Text == TextBoxPassword2.Text)
                 {
                     var user = new User(TextBoxName1.Text, TextBoxName1.Text, TextBoxEmail.Text, TextBoxPassword.Text);
-                    DBConnector.AddUser(user);
-                    MessageBox.Show(this, "You have signed up. Login to use personalized Stonks saver.");
+                    if (DBConnector.AddUser(user))
+                    {
+                        MessageBox.Show(this, "You have signed up. Login to use personalized Stonks saver.");
+                    }
+                    else
+                    {
+                        MessageBox.Show(this, "Sign up failed. Email already in use.");
+                    }
                 }
                 else
                 {
