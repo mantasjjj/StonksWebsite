@@ -3,7 +3,7 @@ Stonks is a university project created to help people all around the world save 
 With our application you can create your very own financial plan today!
 Start your financial freedom journey now ;)
 
-# Stonks functionality
+# About Stonks
   1. SmartSaver - a section where you could start planning your expenses for the upcoming month, while watching what you spent the previous month, it is designed to help anyone manage their expenses better.
   2. Goals - a section where you could add as many wild goals as you want. It will help you track your progress and tell you when you are going to reach your goal based on your savings.
   3. Progress - this is a section where you can see your progress.
