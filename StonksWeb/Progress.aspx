@@ -132,13 +132,13 @@
 
         <h1 class="smart-h3">Your monthly expense chart</h1>
         
-        <asp:Chart ID="chartPlanned" runat="server" Height="500px" Palette="SemiTransparent" Width="624px">
+        <asp:Chart ID="chartPlanned" runat="server" Height="500px" Palette="SemiTransparent" Width="624px" >
             <series>
-                <asp:Series Name="Monthly Expenses" Legend="Legend1">
+                <asp:Series Name="Monthly Expenses" Legend="Legend1" XValueType="String">
                 </asp:Series>
                 </series>
                 <chartareas>
-                    <asp:ChartArea Name="ChartArea">
+                    <asp:ChartArea Name="ChartArea" AlignmentOrientation="None">
                     </asp:ChartArea>
                 </chartareas>
             <Legends>
@@ -146,7 +146,6 @@
                 </asp:Legend>
             </Legends>
          </asp:Chart>
-
         <hr style="margin-top: 0rem;"> </hr>
         <div id="References" runat="server" visible="true" style="margin-bottom: 3%;">
             <h1 class="smart-h3">References</h1>
