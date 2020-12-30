@@ -45,13 +45,14 @@ namespace StonksWeb
 
             chartPlanned.ChartAreas[0].BackColor = Color.Transparent;
 
+            chartPlanned.Series["Monthly Expenses"].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Doughnut;
             //ExpensesChart 
             foreach (Expense expense in FinancialPlanController.ActivePlan.Expenses)
             {
                 try
                 {
-                    chartPlanned.Series["Monthly Expenses"].Points
-                    .AddXY(FinancialPlanController.ActivePlan.GetExpense(expense.Type).ToString(),
+                    chartPlanned.Series["Monthly Expenses"].Points.AddXY(
+                    FinancialPlanController.ActivePlan.GetExpense(expense.Type).Type.ToString(),
                     FinancialPlanController.ActivePlan.GetExpense(expense.Type).Value);
                 }
                 catch(Exception e)
