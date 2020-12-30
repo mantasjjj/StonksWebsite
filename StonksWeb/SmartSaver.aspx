@@ -277,13 +277,14 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="slidecontainer">
-                                    <input type="range" min="1" max="<%# Item.Value %>" value="<%# Item.Funds %>" runat="server" class="slider" id="Slider" style="margin-left: 0;"/>
+                                    <input type="range" min="1" max="<%# Item.Value %>" value="<%# Item.Funds %>" runat="server" class="slider" id="Slider" style="margin-left: 0;" oninput="<%# Item.FunctionCall %>"/>
                                 </div>
                             </div>
                             <div class="col-md-3 smart-text__display">
                                 <asp:TextBox ID="TextBoxValue" type="text" class="smart-text" runat="server" Text="<%# Item.Funds %>"></asp:TextBox>
                             </div>
                         </div>
+                        <%# Item.Function %>
 
                         <!-- Goal 2nd row, used for goal deadline, the display of how much time is left to achieve the goal -->
                         <div class="row slider-margin">

@@ -32,14 +32,27 @@ namespace StonksWeb
         public double Funds { get; set; }
         public string Deadline { get; set; }
         public string TimeToDeadline { get; set; }
+        public string Function { get; set; }
+        public string FunctionCall { get; set; }
 
-        public FinancialGoalInfo(string name, double value, double funds, string deadline, string timeToDeadline )
+        public const string FUNCION_CALL_TEMPLATE = "updateTextBox{0}(this.value);";
+        public const string FUNCION_TEMPLATE = 
+        @"<script>
+            function updateTextBox{0}(val)
+            {{
+                document.getElementById('MainContent_RepeaterGoals_TextBoxValue_{0}').value = val;
+            }}
+        </script>";
+
+        public FinancialGoalInfo(int index, string name, double value, double funds, string deadline, string timeToDeadline )
         {
             Name = name;
             Value = value;
             Funds = funds;
             Deadline = deadline;
             TimeToDeadline = timeToDeadline;
+            FunctionCall = String.Format(FUNCION_CALL_TEMPLATE, index);
+            Function = String.Format(FUNCION_TEMPLATE, index);
         }
     }
 
@@ -65,16 +78,17 @@ namespace StonksWeb
         {
             var goals = new List<FinancialGoalInfo>();
             var timeUnit = FinancialGoal.UseYears ? " years" : " months";
-            foreach (FinancialGoal goal in FinancialPlanController.ActivePlan.FinancialGoals)
+            foreach (var item in FinancialPlanController.ActivePlan.FinancialGoals.Select((value, i) => new { i, value }))
             {
-                goals.Add(new FinancialGoalInfo(goal.Name, goal.Value, goal.AllocatedFunds, goal.GetDeadlineFormatted(), (goal.TimeToDeadline < 0 
+                var goal = item.value;
+                goals.Add(new FinancialGoalInfo(item.i, goal.Name, goal.Value, goal.AllocatedFunds, goal.GetDeadlineFormatted(), (goal.TimeToDeadline < 0 
                     ? "∞" 
                     : Math.Round(goal.TimeToDeadline, 1).ToString())
                     + timeUnit));
             }
             return goals;
         }
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             foreach (ExpenseMap map in expenseMap)
@@ -134,13 +148,11 @@ namespace StonksWeb
         {
             for (int i = 0; i < RepeaterGoals.Items.Count; i++)
             {
-                HtmlInputGenericControl currentSlider = (HtmlInputGenericControl)RepeaterGoals.Items[i].FindControl("Slider");
                 TextBox currentTextBox = (TextBox)RepeaterGoals.Items[i].FindControl("TextBoxValue");
-
-                FinancialPlanController.ActivePlan.FinancialGoals.ElementAt(i).SetDeadlineByFunds(Double.Parse(currentSlider.Value));
-                DBConnector.SaveFinancialPlans(FinancialPlanController.FinancialPlans);
-                Page.Response.Redirect(Page.Request.Url.ToString(), true);
+                FinancialPlanController.ActivePlan.FinancialGoals.ElementAt(i).SetDeadlineByFunds(Double.Parse(currentTextBox.Text));
             }
+            DBConnector.SaveFinancialPlans(FinancialPlanController.FinancialPlans);
+            Page.Response.Redirect(Page.Request.Url.ToString(), true);
         }
 
         protected void DeleteGoal(object sender, EventArgs args)
